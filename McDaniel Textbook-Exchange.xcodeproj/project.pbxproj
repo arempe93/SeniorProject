@@ -16,6 +16,7 @@
 		F5E84B031AA62FA200DAE687 /* McDaniel_Textbook_ExchangeTests.m in Sources */ = {isa = PBXBuildFile; fileRef = F5E84B021AA62FA200DAE687 /* McDaniel_Textbook_ExchangeTests.m */; };
 		F5E84B0F1AA635D800DAE687 /* BooksTableViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = F5E84B0E1AA635D800DAE687 /* BooksTableViewController.m */; };
 		F5E84B121AA637F400DAE687 /* WishlistTableViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = F5E84B111AA637F400DAE687 /* WishlistTableViewController.m */; };
+		F5E84B151AA6392400DAE687 /* TradesTableViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = F5E84B141AA6392400DAE687 /* TradesTableViewController.m */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -46,6 +47,8 @@
 		F5E84B0E1AA635D800DAE687 /* BooksTableViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = BooksTableViewController.m; sourceTree = "<group>"; };
 		F5E84B101AA637F400DAE687 /* WishlistTableViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = WishlistTableViewController.h; sourceTree = "<group>"; };
 		F5E84B111AA637F400DAE687 /* WishlistTableViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = WishlistTableViewController.m; sourceTree = "<group>"; };
+		F5E84B131AA6392400DAE687 /* TradesTableViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = TradesTableViewController.h; sourceTree = "<group>"; };
+		F5E84B141AA6392400DAE687 /* TradesTableViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = TradesTableViewController.m; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -133,6 +136,8 @@
 				F5E84B0E1AA635D800DAE687 /* BooksTableViewController.m */,
 				F5E84B101AA637F400DAE687 /* WishlistTableViewController.h */,
 				F5E84B111AA637F400DAE687 /* WishlistTableViewController.m */,
+				F5E84B131AA6392400DAE687 /* TradesTableViewController.h */,
+				F5E84B141AA6392400DAE687 /* TradesTableViewController.m */,
 			);
 			name = controllers;
 			sourceTree = "<group>";
@@ -237,6 +242,7 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				F5E84B151AA6392400DAE687 /* TradesTableViewController.m in Sources */,
 				F5E84AEF1AA62FA200DAE687 /* ViewController.m in Sources */,
 				F5E84AEC1AA62FA200DAE687 /* AppDelegate.m in Sources */,
 				F5E84B0F1AA635D800DAE687 /* BooksTableViewController.m in Sources */,
