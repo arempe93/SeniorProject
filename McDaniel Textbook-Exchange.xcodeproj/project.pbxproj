@@ -14,6 +14,7 @@
 		F5E84AF41AA62FA200DAE687 /* Images.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = F5E84AF31AA62FA200DAE687 /* Images.xcassets */; };
 		F5E84AF71AA62FA200DAE687 /* LaunchScreen.xib in Resources */ = {isa = PBXBuildFile; fileRef = F5E84AF51AA62FA200DAE687 /* LaunchScreen.xib */; };
 		F5E84B031AA62FA200DAE687 /* McDaniel_Textbook_ExchangeTests.m in Sources */ = {isa = PBXBuildFile; fileRef = F5E84B021AA62FA200DAE687 /* McDaniel_Textbook_ExchangeTests.m */; };
+		F5E84B0F1AA635D800DAE687 /* BooksTableViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = F5E84B0E1AA635D800DAE687 /* BooksTableViewController.m */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -40,6 +41,8 @@
 		F5E84AFC1AA62FA200DAE687 /* McDaniel Textbook-ExchangeTests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = "McDaniel Textbook-ExchangeTests.xctest"; sourceTree = BUILT_PRODUCTS_DIR; };
 		F5E84B011AA62FA200DAE687 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		F5E84B021AA62FA200DAE687 /* McDaniel_Textbook_ExchangeTests.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = McDaniel_Textbook_ExchangeTests.m; sourceTree = "<group>"; };
+		F5E84B0D1AA635D800DAE687 /* BooksTableViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = BooksTableViewController.h; sourceTree = "<group>"; };
+		F5E84B0E1AA635D800DAE687 /* BooksTableViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = BooksTableViewController.m; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -81,6 +84,7 @@
 		F5E84AE51AA62FA200DAE687 /* McDaniel Textbook-Exchange */ = {
 			isa = PBXGroup;
 			children = (
+				F5E84B0C1AA635B600DAE687 /* controllers */,
 				F5E84AEA1AA62FA200DAE687 /* AppDelegate.h */,
 				F5E84AEB1AA62FA200DAE687 /* AppDelegate.m */,
 				F5E84AED1AA62FA200DAE687 /* ViewController.h */,
@@ -117,6 +121,15 @@
 				F5E84B011AA62FA200DAE687 /* Info.plist */,
 			);
 			name = "Supporting Files";
+			sourceTree = "<group>";
+		};
+		F5E84B0C1AA635B600DAE687 /* controllers */ = {
+			isa = PBXGroup;
+			children = (
+				F5E84B0D1AA635D800DAE687 /* BooksTableViewController.h */,
+				F5E84B0E1AA635D800DAE687 /* BooksTableViewController.m */,
+			);
+			name = controllers;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -221,6 +234,7 @@
 			files = (
 				F5E84AEF1AA62FA200DAE687 /* ViewController.m in Sources */,
 				F5E84AEC1AA62FA200DAE687 /* AppDelegate.m in Sources */,
+				F5E84B0F1AA635D800DAE687 /* BooksTableViewController.m in Sources */,
 				F5E84AE91AA62FA200DAE687 /* main.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
