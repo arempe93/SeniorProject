@@ -15,6 +15,7 @@
 		F5E84AF71AA62FA200DAE687 /* LaunchScreen.xib in Resources */ = {isa = PBXBuildFile; fileRef = F5E84AF51AA62FA200DAE687 /* LaunchScreen.xib */; };
 		F5E84B031AA62FA200DAE687 /* McDaniel_Textbook_ExchangeTests.m in Sources */ = {isa = PBXBuildFile; fileRef = F5E84B021AA62FA200DAE687 /* McDaniel_Textbook_ExchangeTests.m */; };
 		F5E84B0F1AA635D800DAE687 /* BooksTableViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = F5E84B0E1AA635D800DAE687 /* BooksTableViewController.m */; };
+		F5E84B121AA637F400DAE687 /* WishlistTableViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = F5E84B111AA637F400DAE687 /* WishlistTableViewController.m */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -43,6 +44,8 @@
 		F5E84B021AA62FA200DAE687 /* McDaniel_Textbook_ExchangeTests.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = McDaniel_Textbook_ExchangeTests.m; sourceTree = "<group>"; };
 		F5E84B0D1AA635D800DAE687 /* BooksTableViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = BooksTableViewController.h; sourceTree = "<group>"; };
 		F5E84B0E1AA635D800DAE687 /* BooksTableViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = BooksTableViewController.m; sourceTree = "<group>"; };
+		F5E84B101AA637F400DAE687 /* WishlistTableViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = WishlistTableViewController.h; sourceTree = "<group>"; };
+		F5E84B111AA637F400DAE687 /* WishlistTableViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = WishlistTableViewController.m; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -128,6 +131,8 @@
 			children = (
 				F5E84B0D1AA635D800DAE687 /* BooksTableViewController.h */,
 				F5E84B0E1AA635D800DAE687 /* BooksTableViewController.m */,
+				F5E84B101AA637F400DAE687 /* WishlistTableViewController.h */,
+				F5E84B111AA637F400DAE687 /* WishlistTableViewController.m */,
 			);
 			name = controllers;
 			sourceTree = "<group>";
@@ -235,6 +240,7 @@
 				F5E84AEF1AA62FA200DAE687 /* ViewController.m in Sources */,
 				F5E84AEC1AA62FA200DAE687 /* AppDelegate.m in Sources */,
 				F5E84B0F1AA635D800DAE687 /* BooksTableViewController.m in Sources */,
+				F5E84B121AA637F400DAE687 /* WishlistTableViewController.m in Sources */,
 				F5E84AE91AA62FA200DAE687 /* main.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
