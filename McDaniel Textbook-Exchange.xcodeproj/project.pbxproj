@@ -7,6 +7,8 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		F526C4BD1AAF5E60004699EA /* APIConnectionManager.m in Sources */ = {isa = PBXBuildFile; fileRef = F526C4BC1AAF5E60004699EA /* APIConnectionManager.m */; };
+		F526C4C11AAF6AC3004699EA /* ProfileViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = F526C4C01AAF6AC3004699EA /* ProfileViewController.m */; };
 		F5E84AE91AA62FA200DAE687 /* main.m in Sources */ = {isa = PBXBuildFile; fileRef = F5E84AE81AA62FA200DAE687 /* main.m */; };
 		F5E84AEC1AA62FA200DAE687 /* AppDelegate.m in Sources */ = {isa = PBXBuildFile; fileRef = F5E84AEB1AA62FA200DAE687 /* AppDelegate.m */; };
 		F5E84AEF1AA62FA200DAE687 /* ViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = F5E84AEE1AA62FA200DAE687 /* ViewController.m */; };
@@ -30,6 +32,10 @@
 /* End PBXContainerItemProxy section */
 
 /* Begin PBXFileReference section */
+		F526C4BB1AAF5E60004699EA /* APIConnectionManager.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = APIConnectionManager.h; sourceTree = "<group>"; };
+		F526C4BC1AAF5E60004699EA /* APIConnectionManager.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = APIConnectionManager.m; sourceTree = "<group>"; };
+		F526C4BF1AAF6AC3004699EA /* ProfileViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ProfileViewController.h; sourceTree = "<group>"; };
+		F526C4C01AAF6AC3004699EA /* ProfileViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = ProfileViewController.m; sourceTree = "<group>"; };
 		F5E84AE31AA62FA200DAE687 /* McDaniel Textbook-Exchange.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = "McDaniel Textbook-Exchange.app"; sourceTree = BUILT_PRODUCTS_DIR; };
 		F5E84AE71AA62FA200DAE687 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		F5E84AE81AA62FA200DAE687 /* main.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = main.m; sourceTree = "<group>"; };
@@ -69,6 +75,15 @@
 /* End PBXFrameworksBuildPhase section */
 
 /* Begin PBXGroup section */
+		F526C4BE1AAF5E6F004699EA /* api */ = {
+			isa = PBXGroup;
+			children = (
+				F526C4BB1AAF5E60004699EA /* APIConnectionManager.h */,
+				F526C4BC1AAF5E60004699EA /* APIConnectionManager.m */,
+			);
+			name = api;
+			sourceTree = "<group>";
+		};
 		F5E84ADA1AA62FA200DAE687 = {
 			isa = PBXGroup;
 			children = (
@@ -91,6 +106,7 @@
 			isa = PBXGroup;
 			children = (
 				F5E84B0C1AA635B600DAE687 /* controllers */,
+				F526C4BE1AAF5E6F004699EA /* api */,
 				F5E84AEA1AA62FA200DAE687 /* AppDelegate.h */,
 				F5E84AEB1AA62FA200DAE687 /* AppDelegate.m */,
 				F5E84AED1AA62FA200DAE687 /* ViewController.h */,
@@ -138,6 +154,8 @@
 				F5E84B111AA637F400DAE687 /* WishlistTableViewController.m */,
 				F5E84B131AA6392400DAE687 /* TradesTableViewController.h */,
 				F5E84B141AA6392400DAE687 /* TradesTableViewController.m */,
+				F526C4BF1AAF6AC3004699EA /* ProfileViewController.h */,
+				F526C4C01AAF6AC3004699EA /* ProfileViewController.m */,
 			);
 			name = controllers;
 			sourceTree = "<group>";
@@ -243,6 +261,8 @@
 			buildActionMask = 2147483647;
 			files = (
 				F5E84B151AA6392400DAE687 /* TradesTableViewController.m in Sources */,
+				F526C4BD1AAF5E60004699EA /* APIConnectionManager.m in Sources */,
+				F526C4C11AAF6AC3004699EA /* ProfileViewController.m in Sources */,
 				F5E84AEF1AA62FA200DAE687 /* ViewController.m in Sources */,
 				F5E84AEC1AA62FA200DAE687 /* AppDelegate.m in Sources */,
 				F5E84B0F1AA635D800DAE687 /* BooksTableViewController.m in Sources */,
@@ -440,6 +460,7 @@
 				F5E84B081AA62FA200DAE687 /* Release */,
 			);
 			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
 		};
 		F5E84B091AA62FA200DAE687 /* Build configuration list for PBXNativeTarget "McDaniel Textbook-ExchangeTests" */ = {
 			isa = XCConfigurationList;
@@ -448,6 +469,7 @@
 				F5E84B0B1AA62FA200DAE687 /* Release */,
 			);
 			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
 		};
 /* End XCConfigurationList section */
 	};

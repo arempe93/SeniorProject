@@ -109,7 +109,7 @@
         <!--Profile-->
         <scene sceneID="v0g-S3-QPf">
             <objects>
-                <viewController title="Profile" id="4Qr-Dz-rFM" sceneMemberID="viewController">
+                <viewController title="Profile" id="4Qr-Dz-rFM" customClass="ProfileViewController" sceneMemberID="viewController">
                     <layoutGuides>
                         <viewControllerLayoutGuide type="top" id="810-6F-uyb"/>
                         <viewControllerLayoutGuide type="bottom" id="HvI-pt-sS8"/>
@@ -117,9 +117,24 @@
                     <view key="view" contentMode="scaleToFill" id="ZoL-lE-K28">
                         <rect key="frame" x="0.0" y="0.0" width="600" height="600"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <subviews>
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Label" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="IOY-Kd-Bf3">
+                                <rect key="frame" x="279" y="290" width="42" height="21"/>
+                                <fontDescription key="fontDescription" type="system" pointSize="17"/>
+                                <color key="textColor" cocoaTouchSystemColor="darkTextColor"/>
+                                <nil key="highlightedColor"/>
+                            </label>
+                        </subviews>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                        <constraints>
+                            <constraint firstAttribute="centerX" secondItem="IOY-Kd-Bf3" secondAttribute="centerX" id="8t3-Wh-d7e"/>
+                            <constraint firstAttribute="centerY" secondItem="IOY-Kd-Bf3" secondAttribute="centerY" id="SkC-lB-7Q0"/>
+                        </constraints>
                     </view>
                     <navigationItem key="navigationItem" title="Profile" id="rN8-P7-l4c"/>
+                    <connections>
+                        <outlet property="mainLabel" destination="IOY-Kd-Bf3" id="ePn-ul-fDl"/>
+                    </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="WFY-OZ-71b" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
