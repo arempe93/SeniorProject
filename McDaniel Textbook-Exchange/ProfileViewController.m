@@ -20,15 +20,13 @@
     
     APIConnectionManager *connection = [APIConnectionManager sharedConnection];
     
-    connection.api_key = @"ya29.LAFyYRdSMyFevoTBlGcaConwlW0udHoruAJESuXTByWZLgtCPaveeodiJKRb7khu7RW-g47R0LoVvQ";
-    [connection doQuery:@"/books/1/owners" params:@"?blah=1" caller:self callback:@selector(setLabelValue:)];
+    connection.api_key = @"ya29.NAF4ZwvPzzpOJBB7pdoajHDZCug9oT1v_7M8NvfPBchTSdaUhCZI6GT3cKbMZcOAJN9nCi6uNRhTsQ";
+    [connection doQuery:@"/books/2/owners" params:@"?blah=1" caller:self callback:@selector(setLabelValue:)];
 }
 
-- (void)setLabelValue:(NSMutableData *)data {
+- (void)setLabelValue:(NSArray *)json {
     
-    NSLog(@"%@", [[NSString alloc] initWithData:data encoding:NSUTF8StringEncoding]);
-    
-    self.mainLabel.text = [[NSString alloc] initWithData:data encoding:NSUTF8StringEncoding];
+    NSLog(@"Data received:\n%@", [[json objectAtIndex:0] objectForKey:@"name"]);
 }
 
 - (void)didReceiveMemoryWarning {

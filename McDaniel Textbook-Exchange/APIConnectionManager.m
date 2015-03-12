@@ -70,11 +70,6 @@
     NSLog(@"Connection started...");
 }
 
-- (NSMutableData *)getData {
-    
-    return self.data;
-}
-
 #pragma mark - Connection delegate methods
 
 - (void)connection:(NSURLConnection *)connection didReceiveResponse:(NSURLResponse *)response {
@@ -94,7 +89,7 @@
     NSLog(@"Connection completed.");
     
     // send data to callback
-    [self.caller performSelector:self.callback withObject:self.data];
+    [self.caller performSelector:self.callback withObject:[NSJSONSerialization JSONObjectWithData:self.data options:NSJSONReadingMutableLeaves error:nil]];
     
     // release connection and data
     self.connection = nil;

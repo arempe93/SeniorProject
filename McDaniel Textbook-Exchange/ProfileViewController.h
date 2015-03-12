@@ -10,6 +10,6 @@
 
 @interface ProfileViewController : UIViewController
 
--(void)setLabelValue:(NSMutableData *)data;
+-(void)setLabelValue:(NSArray *)json;
 
 @end
