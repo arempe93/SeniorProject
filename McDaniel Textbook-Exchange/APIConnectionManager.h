@@ -21,6 +21,8 @@
 
 + (id)sharedConnection;
 
-- (void)doQuery:(NSString *)path params:(NSString *)params caller:(id)caller callback:(SEL)callback;
+- (void)doQuery:(NSString *)path caller:(id)caller callback:(SEL)callback;
+
+- (void)doQueryWithParams:(NSString *)path caller:(id)caller callback:(SEL)callback params:(NSString *)params;
 
 @end

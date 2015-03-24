@@ -44,7 +44,13 @@
 
 #pragma mark - Instance methods
 
-- (void)doQuery:(NSString*)path params:(NSString*)params caller:(id)caller callback:(SEL)callback {
+- (void)doQuery:(NSString*)path caller:(id)caller callback:(SEL)callback {
+    
+    // do query with dummy params
+    [self doQueryWithParams:path caller:caller callback:callback params:@"?foo=bar"];
+}
+
+- (void)doQueryWithParams:(NSString*)path caller:(id)caller callback:(SEL)callback params:(NSString*)params {
     
     // set callback
     self.caller = caller;
@@ -53,7 +59,6 @@
     // modify url
     self.endpoint.path = path;
     self.endpoint.query = [params stringByAppendingString:[NSString stringWithFormat:@"&key=%@", self.api_key]];
-    
     
     NSLog(@"Connection url:");
     NSLog(@"%@", self.endpoint.URL);
@@ -65,7 +70,8 @@
     // create the request
     NSURLRequest *request = [NSURLRequest requestWithURL:self.endpoint.URL];
     self.connection = [[NSURLConnection alloc] initWithRequest:request delegate:self];
-
+    
+    // start the connection
     self.connection.start;
     NSLog(@"Connection started...");
 }

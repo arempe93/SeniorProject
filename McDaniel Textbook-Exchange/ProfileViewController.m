@@ -18,15 +18,20 @@
 - (void)viewDidLoad {
     [super viewDidLoad];
     
+    self.mainLabel.hidden = YES;
+    
     APIConnectionManager *connection = [APIConnectionManager sharedConnection];
     
     connection.api_key = @"ya29.NAF4ZwvPzzpOJBB7pdoajHDZCug9oT1v_7M8NvfPBchTSdaUhCZI6GT3cKbMZcOAJN9nCi6uNRhTsQ";
-    [connection doQuery:@"/books/2/owners" params:@"?blah=1" caller:self callback:@selector(setLabelValue:)];
+    [connection doQuery:@"/books/2/owners" caller:self callback:@selector(setLabelValue:)];
 }
 
 - (void)setLabelValue:(NSArray *)json {
     
+    self.mainLabel.hidden = NO;
+    
     NSLog(@"Data received:\n%@", [[json objectAtIndex:0] objectForKey:@"name"]);
+    self.mainLabel.text = [[json objectAtIndex:0] objectForKey:@"name"];
 }
 
 - (void)didReceiveMemoryWarning {
