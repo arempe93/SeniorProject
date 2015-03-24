@@ -9,6 +9,7 @@
 /* Begin PBXBuildFile section */
 		F526C4BD1AAF5E60004699EA /* APIConnectionManager.m in Sources */ = {isa = PBXBuildFile; fileRef = F526C4BC1AAF5E60004699EA /* APIConnectionManager.m */; };
 		F526C4C11AAF6AC3004699EA /* ProfileViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = F526C4C01AAF6AC3004699EA /* ProfileViewController.m */; };
+		F5951F081AC1D85C00A7CF1C /* WishlistTableViewCell.m in Sources */ = {isa = PBXBuildFile; fileRef = F5951F071AC1D85C00A7CF1C /* WishlistTableViewCell.m */; };
 		F5E84AE91AA62FA200DAE687 /* main.m in Sources */ = {isa = PBXBuildFile; fileRef = F5E84AE81AA62FA200DAE687 /* main.m */; };
 		F5E84AEC1AA62FA200DAE687 /* AppDelegate.m in Sources */ = {isa = PBXBuildFile; fileRef = F5E84AEB1AA62FA200DAE687 /* AppDelegate.m */; };
 		F5E84AEF1AA62FA200DAE687 /* ViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = F5E84AEE1AA62FA200DAE687 /* ViewController.m */; };
@@ -36,6 +37,8 @@
 		F526C4BC1AAF5E60004699EA /* APIConnectionManager.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = APIConnectionManager.m; sourceTree = "<group>"; };
 		F526C4BF1AAF6AC3004699EA /* ProfileViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ProfileViewController.h; sourceTree = "<group>"; };
 		F526C4C01AAF6AC3004699EA /* ProfileViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = ProfileViewController.m; sourceTree = "<group>"; };
+		F5951F061AC1D85C00A7CF1C /* WishlistTableViewCell.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = WishlistTableViewCell.h; sourceTree = "<group>"; };
+		F5951F071AC1D85C00A7CF1C /* WishlistTableViewCell.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = WishlistTableViewCell.m; sourceTree = "<group>"; };
 		F5E84AE31AA62FA200DAE687 /* McDaniel Textbook-Exchange.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = "McDaniel Textbook-Exchange.app"; sourceTree = BUILT_PRODUCTS_DIR; };
 		F5E84AE71AA62FA200DAE687 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		F5E84AE81AA62FA200DAE687 /* main.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = main.m; sourceTree = "<group>"; };
@@ -84,6 +87,15 @@
 			name = api;
 			sourceTree = "<group>";
 		};
+		F5951F021AC1D6AC00A7CF1C /* cells */ = {
+			isa = PBXGroup;
+			children = (
+				F5951F061AC1D85C00A7CF1C /* WishlistTableViewCell.h */,
+				F5951F071AC1D85C00A7CF1C /* WishlistTableViewCell.m */,
+			);
+			name = cells;
+			sourceTree = "<group>";
+		};
 		F5E84ADA1AA62FA200DAE687 = {
 			isa = PBXGroup;
 			children = (
@@ -105,6 +117,7 @@
 		F5E84AE51AA62FA200DAE687 /* McDaniel Textbook-Exchange */ = {
 			isa = PBXGroup;
 			children = (
+				F5951F021AC1D6AC00A7CF1C /* cells */,
 				F5E84B0C1AA635B600DAE687 /* controllers */,
 				F526C4BE1AAF5E6F004699EA /* api */,
 				F5E84AEA1AA62FA200DAE687 /* AppDelegate.h */,
@@ -262,6 +275,7 @@
 			files = (
 				F5E84B151AA6392400DAE687 /* TradesTableViewController.m in Sources */,
 				F526C4BD1AAF5E60004699EA /* APIConnectionManager.m in Sources */,
+				F5951F081AC1D85C00A7CF1C /* WishlistTableViewCell.m in Sources */,
 				F526C4C11AAF6AC3004699EA /* ProfileViewController.m in Sources */,
 				F5E84AEF1AA62FA200DAE687 /* ViewController.m in Sources */,
 				F5E84AEC1AA62FA200DAE687 /* AppDelegate.m in Sources */,

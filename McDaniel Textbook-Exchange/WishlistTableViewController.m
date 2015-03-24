@@ -7,6 +7,7 @@
 //
 
 #import "WishlistTableViewController.h"
+#import "WishlistTableViewCell.h"
 
 @interface WishlistTableViewController ()
 
@@ -47,9 +48,9 @@
 
 
 - (UITableViewCell *)tableView:(UITableView *)tableView cellForRowAtIndexPath:(NSIndexPath *)indexPath {
-    UITableViewCell *cell = [tableView dequeueReusableCellWithIdentifier:@"wishlistCell" forIndexPath:indexPath];
+    WishlistTableViewCell *cell = (WishlistTableViewCell *) [tableView dequeueReusableCellWithIdentifier:@"wishlistCell" forIndexPath:indexPath];
     
-    cell.textLabel.text = [self.wishlist objectAtIndex:indexPath.row];
+    cell.bookName.text = [self.wishlist objectAtIndex:indexPath.row];
     
     return cell;
 }
