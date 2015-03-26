@@ -10,5 +10,6 @@
 
 @interface WishlistTableViewCell : UITableViewCell
 @property (weak, nonatomic) IBOutlet UILabel *bookName;
+@property (weak, nonatomic) IBOutlet UIImageView *bookImage;
 
 @end

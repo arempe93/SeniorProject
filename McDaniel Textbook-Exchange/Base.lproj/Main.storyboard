@@ -2,6 +2,7 @@
 <document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="6254" systemVersion="13F1066" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" initialViewController="Xew-Jr-ATv">
     <dependencies>
         <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="6247"/>
+        <capability name="Constraints to layout margins" minToolsVersion="6.0"/>
     </dependencies>
     <scenes>
         <!--Books-->
@@ -35,29 +36,40 @@
         <scene sceneID="4eW-1k-kpM">
             <objects>
                 <tableViewController title="Wishlist" id="zrF-9W-Pnd" userLabel="Wishlist" customClass="WishlistTableViewController" sceneMemberID="viewController">
-                    <tableView key="view" clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" dataMode="prototypes" style="plain" separatorStyle="default" rowHeight="44" sectionHeaderHeight="22" sectionFooterHeight="22" id="Pl3-dR-JTa">
+                    <tableView key="view" clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" dataMode="prototypes" style="plain" separatorStyle="default" rowHeight="175" sectionHeaderHeight="22" sectionFooterHeight="22" id="Pl3-dR-JTa">
                         <rect key="frame" x="0.0" y="0.0" width="600" height="600"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                         <prototypes>
-                            <tableViewCell contentMode="scaleToFill" selectionStyle="default" indentationWidth="10" reuseIdentifier="wishlistCell" id="uat-Aa-dHx" customClass="WishlistTableViewCell">
+                            <tableViewCell contentMode="scaleToFill" selectionStyle="default" indentationWidth="10" reuseIdentifier="wishlistCell" rowHeight="175" id="uat-Aa-dHx" customClass="WishlistTableViewCell">
                                 <autoresizingMask key="autoresizingMask"/>
                                 <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" tableViewCell="uat-Aa-dHx" id="sCo-nx-ydg">
                                     <autoresizingMask key="autoresizingMask"/>
                                     <subviews>
+                                        <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" misplaced="YES" translatesAutoresizingMaskIntoConstraints="NO" id="Yd7-jD-tTd">
+                                            <rect key="frame" x="8" y="9" width="120" height="158"/>
+                                            <constraints>
+                                                <constraint firstAttribute="width" constant="120" id="z3P-zm-yxP"/>
+                                            </constraints>
+                                        </imageView>
                                         <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Label" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="LCK-kL-mai">
-                                            <rect key="frame" x="279" y="11" width="42" height="21"/>
-                                            <fontDescription key="fontDescription" type="system" pointSize="17"/>
+                                            <rect key="frame" x="136" y="28" width="456" height="21"/>
+                                            <fontDescription key="fontDescription" type="boldSystem" pointSize="17"/>
                                             <color key="textColor" cocoaTouchSystemColor="darkTextColor"/>
                                             <nil key="highlightedColor"/>
                                         </label>
                                     </subviews>
                                     <constraints>
-                                        <constraint firstAttribute="centerY" secondItem="LCK-kL-mai" secondAttribute="centerY" id="YPb-z1-9E1"/>
-                                        <constraint firstAttribute="centerX" secondItem="LCK-kL-mai" secondAttribute="centerX" id="qRN-bo-XaH"/>
+                                        <constraint firstAttribute="bottomMargin" secondItem="Yd7-jD-tTd" secondAttribute="bottom" id="3uB-je-QHv"/>
+                                        <constraint firstItem="LCK-kL-mai" firstAttribute="leading" secondItem="Yd7-jD-tTd" secondAttribute="trailing" constant="8" id="5PK-TY-4aC"/>
+                                        <constraint firstAttribute="trailingMargin" secondItem="LCK-kL-mai" secondAttribute="trailing" id="McQ-zS-ITh"/>
+                                        <constraint firstItem="Yd7-jD-tTd" firstAttribute="leading" secondItem="sCo-nx-ydg" secondAttribute="leadingMargin" id="VrP-FI-tX8"/>
+                                        <constraint firstItem="Yd7-jD-tTd" firstAttribute="top" secondItem="sCo-nx-ydg" secondAttribute="topMargin" id="sXY-E0-fUf"/>
+                                        <constraint firstItem="LCK-kL-mai" firstAttribute="top" secondItem="sCo-nx-ydg" secondAttribute="topMargin" constant="20" id="y1I-XJ-mpt"/>
                                     </constraints>
                                 </tableViewCellContentView>
                                 <connections>
+                                    <outlet property="bookImage" destination="Yd7-jD-tTd" id="rQi-DF-UJT"/>
                                     <outlet property="bookName" destination="LCK-kL-mai" id="wh0-mH-oMt"/>
                                 </connections>
                             </tableViewCell>
@@ -71,7 +83,7 @@
                 </tableViewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="jJm-K7-FtI" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="1964" y="110"/>
+            <point key="canvasLocation" x="1964" y="109"/>
         </scene>
         <!--MainTabs-->
         <scene sceneID="UMn-Ji-9dT">
