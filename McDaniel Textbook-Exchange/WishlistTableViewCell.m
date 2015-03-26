@@ -12,6 +12,12 @@
 
 - (void)awakeFromNib {
     
+}
+
+- (void)loadInformation {
+    
+    NSLog(@"Wishlist Cell Created with title: %@", [self.cellInformation objectForKey:@"title"]);
+    
     // set view control properties
     
     self.bookName.lineBreakMode = NSLineBreakByWordWrapping;
@@ -20,11 +26,11 @@
     
     // set view control values
     
-    UIImage *sampleImage = [UIImage imageWithData:[NSData dataWithContentsOfURL:[NSURL URLWithString:@"http://ecx.images-amazon.com/images/I/416PMQqyT4L._SL194_.jpg"]]];
+    UIImage *sampleImage = [UIImage imageWithData:[NSData dataWithContentsOfURL:[NSURL URLWithString:[self.cellInformation objectForKey:@"image"]]]];
     
     self.bookImage.image = sampleImage;
     
-    self.bookName.text = @"Calculus, 6th Edition (Stewart's Calculus Series) (Available 2010 Titles Enhanced Web Assign)";
+    self.bookName.text = [self.cellInformation objectForKey:@"title"];
     [self.bookName sizeToFit];
 }
 

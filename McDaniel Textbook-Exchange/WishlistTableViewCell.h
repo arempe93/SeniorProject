@@ -12,4 +12,7 @@
 @property (weak, nonatomic) IBOutlet UILabel *bookName;
 @property (weak, nonatomic) IBOutlet UIImageView *bookImage;
 
+@property NSDictionary *cellInformation;
+
+-(void) loadInformation;
 @end

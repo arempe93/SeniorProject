@@ -10,4 +10,5 @@
 
 @interface WishlistTableViewController : UITableViewController
 
+@property NSArray *rowData;
 @end

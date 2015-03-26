@@ -47,7 +47,7 @@
 - (void)doQuery:(NSString*)path caller:(id)caller callback:(SEL)callback {
     
     // do query with dummy params
-    [self doQueryWithParams:path caller:caller callback:callback params:@"?foo=bar"];
+    [self doQueryWithParams:path caller:caller callback:callback params:@"foo=bar"];
 }
 
 - (void)doQueryWithParams:(NSString*)path caller:(id)caller callback:(SEL)callback params:(NSString*)params {

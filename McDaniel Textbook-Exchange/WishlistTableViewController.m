@@ -8,10 +8,10 @@
 
 #import "WishlistTableViewController.h"
 #import "WishlistTableViewCell.h"
+#import "APIConnectionManager.h"
 
 @interface WishlistTableViewController ()
 
-@property NSMutableArray *wishlist;
 @end
 
 @implementation WishlistTableViewController
@@ -19,19 +19,26 @@
 - (void)viewDidLoad {
     [super viewDidLoad];
     
-    self.wishlist = [[NSMutableArray alloc] init];
-    [self loadInitialData];
-}
-
-- (void)loadInitialData {
+    APIConnectionManager *api = [APIConnectionManager sharedConnection];
+    api.api_key = @"ya29.NAF4ZwvPzzpOJBB7pdoajHDZCug9oT1v_7M8NvfPBchTSdaUhCZI6GT3cKbMZcOAJN9nCi6uNRhTsQ";
     
-    [self.wishlist addObject:@"Velocity"];
-    [self.wishlist addObject:@"Fahrenheit 451"];
+    [api doQuery:@"/users/1/wanted_books" caller:self callback:@selector(rowDataDidLoad:)];
 }
 
 - (void)didReceiveMemoryWarning {
     [super didReceiveMemoryWarning];
     // Dispose of any resources that can be recreated.
+}
+
+#pragma mark - Asynchronous data loading
+
+- (void)rowDataDidLoad:(NSArray *)data {
+    
+    self.rowData = data;
+    
+    NSLog(@"%@", [self.rowData objectAtIndex:0]);
+
+    [self.tableView reloadData];
 }
 
 #pragma mark - Table view data source
@@ -43,20 +50,23 @@
 
 - (NSInteger)tableView:(UITableView *)tableView numberOfRowsInSection:(NSInteger)section {
 
-    return [self.wishlist count];
+    NSLog(@"%lu", [self.rowData count]);
+    return [self.rowData count];
 }
 
 
 - (UITableViewCell *)tableView:(UITableView *)tableView cellForRowAtIndexPath:(NSIndexPath *)indexPath {
     WishlistTableViewCell *cell = (WishlistTableViewCell *) [tableView dequeueReusableCellWithIdentifier:@"wishlistCell" forIndexPath:indexPath];
     
-    //cell.bookName.text = [self.wishlist objectAtIndex:indexPath.row];
+    cell.cellInformation = [self.rowData objectAtIndex:indexPath.row];
+    [cell loadInformation];
     
     return cell;
 }
 
 - (CGFloat)tableView:(UITableView *)tableView heightForRowAtIndexPath:(NSIndexPath *)indexPath {
     
+    // height of cell content view
     return 175;
 }
 
