@@ -69,15 +69,19 @@
     
     // create the request
     NSURLRequest *request = [NSURLRequest requestWithURL:self.endpoint.URL];
-    self.connection = [[NSURLConnection alloc] initWithRequest:request delegate:self];
-    
-    // start the connection
-    self.connection.start;
-    NSLog(@"Connection started...");
+    self.connection = [[NSURLConnection alloc] initWithRequest:request delegate:self startImmediately:YES];
 }
 
 - (void)doDelete:(NSString *)path {
     
+    // modify url
+    self.endpoint.path = path;
+    self.endpoint.query = [NSString stringWithFormat:@"key=%@", self.api_key];
+
+    // create the request
+    NSMutableURLRequest *request = [NSMutableURLRequest requestWithURL:self.endpoint.URL];
+    [request setHTTPMethod:@"DELETE"];
+    self.connection = [[NSURLConnection alloc] initWithRequest:request delegate:self startImmediately:YES];
 }
 
 #pragma mark - Connection delegate methods
@@ -99,11 +103,17 @@
     NSLog(@"Connection completed.");
     
     // send data to callback
-    [self.caller performSelector:self.callback withObject:[NSJSONSerialization JSONObjectWithData:self.data options:NSJSONReadingMutableLeaves error:nil]];
+    if (self.caller != nil && self.callback != nil) {
+         [self.caller performSelector:self.callback withObject:[NSJSONSerialization JSONObjectWithData:self.data options:NSJSONReadingMutableLeaves error:nil]];
+    }
     
     // release connection and data
     self.connection = nil;
     self.data = nil;
+    
+    // reset caller and callback
+    self.caller = nil;
+    self.callback = nil;
 }
 
 @end
