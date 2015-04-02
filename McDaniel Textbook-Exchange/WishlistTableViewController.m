@@ -26,7 +26,7 @@
     // get table data
     
     self.api = [APIConnectionManager sharedConnection];
-    self.api.api_key = @"ya29.NAF4ZwvPzzpOJBB7pdoajHDZCug9oT1v_7M8NvfPBchTSdaUhCZI6GT3cKbMZcOAJN9nCi6uNRhTsQ";
+    self.api.api_key = @"ya29.LAFWYdlZwK0pO3OsRd7oCs_ZwzOB2-XMZrdj1XGwviN54CSBSkJgdanLcWqHzGl4eI0BmZ9hrKPRmg";
     
     [self.api doQuery:@"/users/1/owned_books" caller:self callback:@selector(didRowDataLoad:)];
 }
@@ -49,6 +49,8 @@
 
 - (void)removeWishlistBook:(id)bookID {
     
+    NSLog(@"%@", bookID);
+    
     [self.api doDelete:[NSString stringWithFormat:@"/owned_books/%@", bookID]];
 }
 
@@ -68,7 +70,7 @@
 - (UITableViewCell *)tableView:(UITableView *)tableView cellForRowAtIndexPath:(NSIndexPath *)indexPath {
     WishlistTableViewCell *cell = (WishlistTableViewCell *) [tableView dequeueReusableCellWithIdentifier:@"wishlistCell" forIndexPath:indexPath];
     
-    cell.cellInformation = [self.rowData objectAtIndex:indexPath.row];
+    cell.cellInformation = [[self.rowData objectAtIndex:indexPath.row] objectForKey:@"book"];
     [cell loadInformation];
     
     cell.controller = self;

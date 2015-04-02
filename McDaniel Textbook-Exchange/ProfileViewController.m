@@ -22,7 +22,7 @@
     
     APIConnectionManager *connection = [APIConnectionManager sharedConnection];
     
-    connection.api_key = @"ya29.NAF4ZwvPzzpOJBB7pdoajHDZCug9oT1v_7M8NvfPBchTSdaUhCZI6GT3cKbMZcOAJN9nCi6uNRhTsQ";
+    connection.api_key = @"ya29.LAFWYdlZwK0pO3OsRd7oCs_ZwzOB2-XMZrdj1XGwviN54CSBSkJgdanLcWqHzGl4eI0BmZ9hrKPRmg";
     [connection doQuery:@"/books/2/owners" caller:self callback:@selector(setLabelValue:)];
 }
 
