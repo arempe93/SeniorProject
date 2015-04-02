@@ -36,6 +36,29 @@
     // Dispose of any resources that can be recreated.
 }
 
+- (NSArray *) leftButtons {
+    
+    NSMutableArray *leftUtilityButtons = [NSMutableArray new];
+    
+    [leftUtilityButtons sw_addUtilityButtonWithColor: /* #007aff */
+     [UIColor colorWithRed:0 green:0.478f blue:1 alpha:1.0] title:@"1"];
+    
+    [leftUtilityButtons sw_addUtilityButtonWithColor: /* #ffcc00 */
+     [UIColor colorWithRed:1 green:0.8f blue:0 alpha:1.0] title:@"2"];
+    
+    return leftUtilityButtons;
+}
+
+- (NSArray *) rightButtons {
+    
+    NSMutableArray *rightUtilityButtons = [NSMutableArray new];
+    
+    [rightUtilityButtons sw_addUtilityButtonWithColor: /* #ff2d55 */
+     [UIColor colorWithRed:1 green:0.176f blue:0.333f alpha:1.0] title:@"X"];
+    
+    return rightUtilityButtons;
+}
+
 #pragma mark - Asynchronous data loading
 
 - (void)didRowDataLoad:(NSArray *)data {
@@ -54,6 +77,36 @@
     [self.api doDelete:[NSString stringWithFormat:@"/owned_books/%@", bookID]];
 }
 
+#pragma mark - SWTableViewCell delgate
+
+- (void)swipeableTableViewCell:(SWTableViewCell *)cell didTriggerLeftUtilityButtonWithIndex:(NSInteger)index {
+    switch (index) {
+        case 0:
+            NSLog(@"check button was pressed");
+            break;
+        case 1:
+            NSLog(@"clock button was pressed");
+            break;
+        case 2:
+            NSLog(@"cross button was pressed");
+            break;
+        case 3:
+            NSLog(@"list button was pressed");
+        default:
+            break;
+    }
+}
+
+- (void)swipeableTableViewCell:(SWTableViewCell *)cell didTriggerRightUtilityButtonWithIndex:(NSInteger)index {
+    switch (index) {
+        case 0:
+            NSLog(@"More button was pressed");
+            break;
+        default:
+            break;
+    }
+}
+
 #pragma mark - Table view data source
 
 - (NSInteger)numberOfSectionsInTableView:(UITableView *)tableView {
@@ -69,6 +122,11 @@
 
 - (UITableViewCell *)tableView:(UITableView *)tableView cellForRowAtIndexPath:(NSIndexPath *)indexPath {
     WishlistTableViewCell *cell = (WishlistTableViewCell *) [tableView dequeueReusableCellWithIdentifier:@"wishlistCell" forIndexPath:indexPath];
+    
+    cell.delegate = self;
+    
+    cell.leftUtilityButtons = [self leftButtons];
+    cell.rightUtilityButtons = [self rightButtons];
     
     cell.cellInformation = [[self.rowData objectAtIndex:indexPath.row] objectForKey:@"book"];
     [cell loadInformation];
@@ -88,9 +146,10 @@
 // Override to support conditional editing of the table view.
 - (BOOL)tableView:(UITableView *)tableView canEditRowAtIndexPath:(NSIndexPath *)indexPath {
     // Return NO if you do not want the specified item to be editable.
-    return YES;
+    return NO;
 }
 
+/*
 // Override to support editing the table view.
 - (void)tableView:(UITableView *)tableView commitEditingStyle:(UITableViewCellEditingStyle)editingStyle forRowAtIndexPath:(NSIndexPath *)indexPath {
     if (editingStyle == UITableViewCellEditingStyleDelete) {
@@ -110,6 +169,7 @@
         // Create a new instance of the appropriate class, insert it into the array, and add a new row to the table view
     }   
 }
+*/
 
 /*
 // Override to support rearranging the table view.

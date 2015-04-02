@@ -8,8 +8,9 @@
 
 #import <UIKit/UIKit.h>
 #import "WishlistTableViewController.h"
+#import "SWTableViewCell.h"
 
-@interface WishlistTableViewCell : UITableViewCell
+@interface WishlistTableViewCell : SWTableViewCell
 
 @property (weak, nonatomic) IBOutlet UILabel *bookName;
 @property (weak, nonatomic) IBOutlet UILabel *bookAuthor;
