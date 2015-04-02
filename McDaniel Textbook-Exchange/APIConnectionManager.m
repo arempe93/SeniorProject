@@ -76,6 +76,10 @@
     NSLog(@"Connection started...");
 }
 
+- (void)doDelete:(NSString *)path {
+    
+}
+
 #pragma mark - Connection delegate methods
 
 - (void)connection:(NSURLConnection *)connection didReceiveResponse:(NSURLResponse *)response {

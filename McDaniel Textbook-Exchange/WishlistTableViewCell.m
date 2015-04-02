@@ -7,6 +7,7 @@
 //
 
 #import "WishlistTableViewCell.h"
+#import "WishlistTableViewController.h"
 
 @implementation WishlistTableViewCell
 
@@ -16,13 +17,15 @@
 
 - (void)loadInformation {
     
-    NSLog(@"Wishlist Cell Created with title: %@", [self.cellInformation objectForKey:@"title"]);
-    
     // set view control properties
     
     self.bookName.lineBreakMode = NSLineBreakByWordWrapping;
     self.bookName.adjustsFontSizeToFitWidth = NO;
     self.bookName.numberOfLines = 2;
+    
+    self.bookAuthor.lineBreakMode = NSLineBreakByWordWrapping;
+    self.bookAuthor.adjustsFontSizeToFitWidth = NO;
+    self.bookAuthor.numberOfLines = 2;
     
     // set view control values
     
@@ -32,6 +35,9 @@
     
     self.bookName.text = [self.cellInformation objectForKey:@"title"];
     [self.bookName sizeToFit];
+    
+    self.bookAuthor.text = [self.cellInformation objectForKey:@"authors"];
+    [self.bookAuthor sizeToFit];
 }
 
 - (void)setSelected:(BOOL)selected animated:(BOOL)animated {

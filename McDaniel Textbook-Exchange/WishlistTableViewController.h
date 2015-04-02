@@ -7,8 +7,12 @@
 //
 
 #import <UIKit/UIKit.h>
+#import "APIConnectionManager.h"
 
 @interface WishlistTableViewController : UITableViewController
 
-@property NSArray *rowData;
+@property APIConnectionManager *api;
+@property NSMutableArray *rowData;
+
+- (void)removeWishlistBook:(id)bookID;
 @end

@@ -25,4 +25,6 @@
 
 - (void)doQueryWithParams:(NSString *)path caller:(id)caller callback:(SEL)callback params:(NSString *)params;
 
+- (void)doDelete:(NSString *)path;
+
 @end

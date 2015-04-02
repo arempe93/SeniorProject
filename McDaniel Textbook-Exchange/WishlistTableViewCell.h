@@ -7,12 +7,17 @@
 //
 
 #import <UIKit/UIKit.h>
+#import "WishlistTableViewController.h"
 
 @interface WishlistTableViewCell : UITableViewCell
+
 @property (weak, nonatomic) IBOutlet UILabel *bookName;
+@property (weak, nonatomic) IBOutlet UILabel *bookAuthor;
 @property (weak, nonatomic) IBOutlet UIImageView *bookImage;
+@property (weak, nonatomic) IBOutlet UIButton *removeButton;
 
 @property NSDictionary *cellInformation;
+@property WishlistTableViewController *controller;
 
 -(void) loadInformation;
 @end

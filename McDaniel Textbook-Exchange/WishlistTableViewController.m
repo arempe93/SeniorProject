@@ -19,10 +19,16 @@
 - (void)viewDidLoad {
     [super viewDidLoad];
     
-    APIConnectionManager *api = [APIConnectionManager sharedConnection];
-    api.api_key = @"ya29.NAF4ZwvPzzpOJBB7pdoajHDZCug9oT1v_7M8NvfPBchTSdaUhCZI6GT3cKbMZcOAJN9nCi6uNRhTsQ";
+    // table configuration
     
-    [api doQuery:@"/users/1/wanted_books" caller:self callback:@selector(rowDataDidLoad:)];
+    self.tableView.allowsMultipleSelectionDuringEditing = NO;
+    
+    // get table data
+    
+    self.api = [APIConnectionManager sharedConnection];
+    self.api.api_key = @"ya29.NAF4ZwvPzzpOJBB7pdoajHDZCug9oT1v_7M8NvfPBchTSdaUhCZI6GT3cKbMZcOAJN9nCi6uNRhTsQ";
+    
+    [self.api doQuery:@"/users/1/owned_books" caller:self callback:@selector(didRowDataLoad:)];
 }
 
 - (void)didReceiveMemoryWarning {
@@ -32,13 +38,18 @@
 
 #pragma mark - Asynchronous data loading
 
-- (void)rowDataDidLoad:(NSArray *)data {
+- (void)didRowDataLoad:(NSArray *)data {
     
-    self.rowData = data;
-    
-    NSLog(@"%@", [self.rowData objectAtIndex:0]);
+    self.rowData = [NSMutableArray arrayWithArray:data];
 
     [self.tableView reloadData];
+}
+
+#pragma mark - Cell actions
+
+- (void)removeWishlistBook:(id)bookID {
+    
+    [self.api doDelete:[NSString stringWithFormat:@"/owned_books/%@", bookID]];
 }
 
 #pragma mark - Table view data source
@@ -50,7 +61,6 @@
 
 - (NSInteger)tableView:(UITableView *)tableView numberOfRowsInSection:(NSInteger)section {
 
-    NSLog(@"%lu", [self.rowData count]);
     return [self.rowData count];
 }
 
@@ -60,6 +70,8 @@
     
     cell.cellInformation = [self.rowData objectAtIndex:indexPath.row];
     [cell loadInformation];
+    
+    cell.controller = self;
     
     return cell;
 }
@@ -71,25 +83,31 @@
 }
 
 
-/*
 // Override to support conditional editing of the table view.
 - (BOOL)tableView:(UITableView *)tableView canEditRowAtIndexPath:(NSIndexPath *)indexPath {
     // Return NO if you do not want the specified item to be editable.
     return YES;
 }
-*/
 
-/*
 // Override to support editing the table view.
 - (void)tableView:(UITableView *)tableView commitEditingStyle:(UITableViewCellEditingStyle)editingStyle forRowAtIndexPath:(NSIndexPath *)indexPath {
     if (editingStyle == UITableViewCellEditingStyleDelete) {
-        // Delete the row from the data source
+        
+        // Remove the record on the server
+        
+        [self removeWishlistBook:[[self.rowData objectAtIndex:indexPath.row] objectForKey:@"id"]];
+        
+        // Remove the row from data array
+        
+        [self.rowData removeObjectAtIndex:indexPath.row];
+        
+        // Delete the row from the table
+        
         [tableView deleteRowsAtIndexPaths:@[indexPath] withRowAnimation:UITableViewRowAnimationFade];
     } else if (editingStyle == UITableViewCellEditingStyleInsert) {
         // Create a new instance of the appropriate class, insert it into the array, and add a new row to the table view
     }   
 }
-*/
 
 /*
 // Override to support rearranging the table view.

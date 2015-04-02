@@ -52,10 +52,16 @@
                                                 <constraint firstAttribute="width" constant="120" id="z3P-zm-yxP"/>
                                             </constraints>
                                         </imageView>
-                                        <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Label" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="LCK-kL-mai">
+                                        <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Title" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="LCK-kL-mai">
                                             <rect key="frame" x="136" y="28" width="456" height="21"/>
                                             <fontDescription key="fontDescription" type="boldSystem" pointSize="17"/>
                                             <color key="textColor" cocoaTouchSystemColor="darkTextColor"/>
+                                            <nil key="highlightedColor"/>
+                                        </label>
+                                        <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Authors" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="kB2-sa-RO7">
+                                            <rect key="frame" x="136" y="57" width="456" height="17"/>
+                                            <fontDescription key="fontDescription" type="system" pointSize="14"/>
+                                            <color key="textColor" white="0.33333333333333331" alpha="1" colorSpace="calibratedWhite"/>
                                             <nil key="highlightedColor"/>
                                         </label>
                                     </subviews>
@@ -63,12 +69,16 @@
                                         <constraint firstAttribute="bottomMargin" secondItem="Yd7-jD-tTd" secondAttribute="bottom" id="3uB-je-QHv"/>
                                         <constraint firstItem="LCK-kL-mai" firstAttribute="leading" secondItem="Yd7-jD-tTd" secondAttribute="trailing" constant="8" id="5PK-TY-4aC"/>
                                         <constraint firstAttribute="trailingMargin" secondItem="LCK-kL-mai" secondAttribute="trailing" id="McQ-zS-ITh"/>
+                                        <constraint firstItem="kB2-sa-RO7" firstAttribute="top" secondItem="LCK-kL-mai" secondAttribute="bottom" constant="8" id="RSK-sY-9ca"/>
+                                        <constraint firstAttribute="trailingMargin" secondItem="kB2-sa-RO7" secondAttribute="trailing" id="SLf-cQ-BC5"/>
                                         <constraint firstItem="Yd7-jD-tTd" firstAttribute="leading" secondItem="sCo-nx-ydg" secondAttribute="leadingMargin" id="VrP-FI-tX8"/>
+                                        <constraint firstItem="kB2-sa-RO7" firstAttribute="leading" secondItem="Yd7-jD-tTd" secondAttribute="trailing" constant="8" id="YAl-37-ny7"/>
                                         <constraint firstItem="Yd7-jD-tTd" firstAttribute="top" secondItem="sCo-nx-ydg" secondAttribute="topMargin" id="sXY-E0-fUf"/>
                                         <constraint firstItem="LCK-kL-mai" firstAttribute="top" secondItem="sCo-nx-ydg" secondAttribute="topMargin" constant="20" id="y1I-XJ-mpt"/>
                                     </constraints>
                                 </tableViewCellContentView>
                                 <connections>
+                                    <outlet property="bookAuthor" destination="kB2-sa-RO7" id="IqW-HE-Bur"/>
                                     <outlet property="bookImage" destination="Yd7-jD-tTd" id="rQi-DF-UJT"/>
                                     <outlet property="bookName" destination="LCK-kL-mai" id="wh0-mH-oMt"/>
                                 </connections>
@@ -83,7 +93,7 @@
                 </tableViewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="jJm-K7-FtI" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="1964" y="109"/>
+            <point key="canvasLocation" x="1964" y="108"/>
         </scene>
         <!--MainTabs-->
         <scene sceneID="UMn-Ji-9dT">
