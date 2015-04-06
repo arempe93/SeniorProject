@@ -28,13 +28,15 @@
     self.api = [APIConnectionManager sharedConnection];
     self.api.api_key = @"ya29.LAFWYdlZwK0pO3OsRd7oCs_ZwzOB2-XMZrdj1XGwviN54CSBSkJgdanLcWqHzGl4eI0BmZ9hrKPRmg";
     
-    [self.api doQuery:@"/users/1/owned_books" caller:self callback:@selector(didRowDataLoad:)];
+    [self.api doQuery:@"/users/1/wanted_books" caller:self callback:@selector(didRowDataLoad:)];
 }
 
 - (void)didReceiveMemoryWarning {
     [super didReceiveMemoryWarning];
     // Dispose of any resources that can be recreated.
 }
+
+#pragma mark - SWTableViewCell buttons
 
 - (NSArray *) leftButtons {
     
@@ -72,9 +74,7 @@
 
 - (void)removeWishlistBook:(id)bookID {
     
-    NSLog(@"%@", bookID);
-    
-    [self.api doDelete:[NSString stringWithFormat:@"/owned_books/%@", bookID]];
+    [self.api doDelete:[NSString stringWithFormat:@"/wanted_books/%@", bookID]];
 }
 
 #pragma mark - SWTableViewCell delgate
@@ -155,7 +155,7 @@
 
 // Override to support conditional editing of the table view.
 - (BOOL)tableView:(UITableView *)tableView canEditRowAtIndexPath:(NSIndexPath *)indexPath {
-    // Return NO if you do not want the specified item to be editable.
+    
     return NO;
 }
 
@@ -163,7 +163,7 @@
 // Override to support editing the table view.
 - (void)tableView:(UITableView *)tableView commitEditingStyle:(UITableViewCellEditingStyle)editingStyle forRowAtIndexPath:(NSIndexPath *)indexPath {
     if (editingStyle == UITableViewCellEditingStyleDelete) {
-        
+ 
     } else if (editingStyle == UITableViewCellEditingStyleInsert) {
         // Create a new instance of the appropriate class, insert it into the array, and add a new row to the table view
     }   

@@ -92,12 +92,63 @@
                     <navigationItem key="navigationItem" title="Wishlist" id="EBx-tz-YDb">
                         <barButtonItem key="rightBarButtonItem" style="plain" systemItem="add" id="0fC-ke-o4h">
                             <color key="tintColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                            <connections>
+                                <segue destination="vTt-ai-PJe" kind="presentation" id="AyE-tV-3Ad"/>
+                            </connections>
                         </barButtonItem>
                     </navigationItem>
                 </tableViewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="jJm-K7-FtI" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
             <point key="canvasLocation" x="1964" y="108"/>
+        </scene>
+        <!--Search for Books-->
+        <scene sceneID="rIb-XO-QUu">
+            <objects>
+                <viewController id="rdm-Qu-p4x" sceneMemberID="viewController">
+                    <layoutGuides>
+                        <viewControllerLayoutGuide type="top" id="V2A-Pz-mBw"/>
+                        <viewControllerLayoutGuide type="bottom" id="loa-Tj-op8"/>
+                    </layoutGuides>
+                    <view key="view" contentMode="scaleToFill" id="gUU-lJ-rKN">
+                        <rect key="frame" x="0.0" y="0.0" width="600" height="600"/>
+                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <subviews>
+                            <textField opaque="NO" clipsSubviews="YES" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="roundedRect" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="zUq-gf-V4F">
+                                <rect key="frame" x="16" y="285" width="568" height="30"/>
+                                <fontDescription key="fontDescription" type="system" pointSize="14"/>
+                                <textInputTraits key="textInputTraits"/>
+                            </textField>
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Lookup by ISBN" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="HwK-Mi-qWp">
+                                <rect key="frame" x="16" y="238" width="568" height="29"/>
+                                <fontDescription key="fontDescription" type="system" pointSize="24"/>
+                                <color key="textColor" cocoaTouchSystemColor="darkTextColor"/>
+                                <nil key="highlightedColor"/>
+                            </label>
+                        </subviews>
+                        <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                        <constraints>
+                            <constraint firstItem="zUq-gf-V4F" firstAttribute="top" secondItem="HwK-Mi-qWp" secondAttribute="bottom" constant="18" id="5hn-sO-4HB"/>
+                            <constraint firstAttribute="trailingMargin" secondItem="zUq-gf-V4F" secondAttribute="trailing" id="O6W-xg-CGD"/>
+                            <constraint firstItem="HwK-Mi-qWp" firstAttribute="leading" secondItem="gUU-lJ-rKN" secondAttribute="leadingMargin" id="W92-hH-t4P"/>
+                            <constraint firstAttribute="centerY" secondItem="zUq-gf-V4F" secondAttribute="centerY" id="Ydh-IM-HhH"/>
+                            <constraint firstAttribute="trailingMargin" secondItem="HwK-Mi-qWp" secondAttribute="trailing" id="aWR-hc-0gZ"/>
+                            <constraint firstItem="zUq-gf-V4F" firstAttribute="leading" secondItem="gUU-lJ-rKN" secondAttribute="leadingMargin" id="baJ-2b-lt6"/>
+                            <constraint firstAttribute="centerX" secondItem="zUq-gf-V4F" secondAttribute="centerX" id="hqg-O7-Jm2"/>
+                        </constraints>
+                    </view>
+                    <navigationItem key="navigationItem" title="Search for Books" id="O68-Sp-lNN">
+                        <barButtonItem key="leftBarButtonItem" systemItem="cancel" id="e8F-wE-hsI">
+                            <color key="tintColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                        </barButtonItem>
+                        <barButtonItem key="rightBarButtonItem" systemItem="search" id="B30-6b-K2r">
+                            <color key="tintColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                        </barButtonItem>
+                    </navigationItem>
+                </viewController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="ij9-Vu-mfa" userLabel="First Responder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="3506" y="108"/>
         </scene>
         <!--MainTabs-->
         <scene sceneID="UMn-Ji-9dT">
@@ -261,6 +312,28 @@
                 <placeholder placeholderIdentifier="IBFirstResponder" id="5ro-VF-80w" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
             <point key="canvasLocation" x="1152" y="1432"/>
+        </scene>
+        <!--Navigation Controller-->
+        <scene sceneID="sJg-Ep-iPE">
+            <objects>
+                <navigationController automaticallyAdjustsScrollViewInsets="NO" id="vTt-ai-PJe" sceneMemberID="viewController">
+                    <toolbarItems/>
+                    <navigationBar key="navigationBar" contentMode="scaleToFill" id="1YJ-Iu-2qc">
+                        <rect key="frame" x="0.0" y="0.0" width="320" height="44"/>
+                        <autoresizingMask key="autoresizingMask"/>
+                        <color key="barTintColor" red="0.30980393290000002" green="0.83921575550000005" blue="0.42352944609999998" alpha="1" colorSpace="deviceRGB"/>
+                        <textAttributes key="titleTextAttributes">
+                            <color key="textColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                        </textAttributes>
+                    </navigationBar>
+                    <nil name="viewControllers"/>
+                    <connections>
+                        <segue destination="rdm-Qu-p4x" kind="relationship" relationship="rootViewController" id="fAq-zP-36M"/>
+                    </connections>
+                </navigationController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="Gep-sP-XiR" userLabel="First Responder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="2730" y="110"/>
         </scene>
     </scenes>
 </document>
