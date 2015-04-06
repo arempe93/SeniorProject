@@ -7,10 +7,11 @@
 //
 
 #import "BooksTableViewController.h"
+#import "BookTableViewCell.h"
+#import "APIConnectionManager.h"
 
 @interface BooksTableViewController ()
 
-@property NSMutableArray *bookList;
 @end
 
 @implementation BooksTableViewController
@@ -18,19 +19,103 @@
 - (void)viewDidLoad {
     [super viewDidLoad];
     
-    self.bookList = [[NSMutableArray alloc] init];
-    [self loadInitialData];
-}
-
-- (void)loadInitialData {
+    // table configuration
     
-    [self.bookList addObject:@"Harry Potter"];
-    [self.bookList addObject:@"Game of Thrones"];
+    self.tableView.allowsMultipleSelectionDuringEditing = NO;
+    
+    // get table data
+    
+    self.api = [APIConnectionManager sharedConnection];
+    self.api.api_key = @"ya29.LAFWYdlZwK0pO3OsRd7oCs_ZwzOB2-XMZrdj1XGwviN54CSBSkJgdanLcWqHzGl4eI0BmZ9hrKPRmg";
+    
+    [self.api doQuery:@"/users/1/owned_books" caller:self callback:@selector(didRowDataLoad:)];
 }
 
 - (void)didReceiveMemoryWarning {
     [super didReceiveMemoryWarning];
     // Dispose of any resources that can be recreated.
+}
+
+#pragma mark - SWTableViewCell buttons
+
+- (NSArray *) leftButtons {
+    
+    NSMutableArray *leftUtilityButtons = [NSMutableArray new];
+    
+    [leftUtilityButtons sw_addUtilityButtonWithColor: /* #007aff */
+     [UIColor colorWithRed:0 green:0.478f blue:1 alpha:1.0] title:@"1"];
+    
+    [leftUtilityButtons sw_addUtilityButtonWithColor: /* #ffcc00 */
+     [UIColor colorWithRed:1 green:0.8f blue:0 alpha:1.0] title:@"2"];
+    
+    return leftUtilityButtons;
+}
+
+- (NSArray *) rightButtons {
+    
+    NSMutableArray *rightUtilityButtons = [NSMutableArray new];
+    
+    // delete button
+    [rightUtilityButtons sw_addUtilityButtonWithColor: /* #ff2d55 */
+     [UIColor colorWithRed:1 green:0.176f blue:0.333f alpha:1.0] title:@"X"];
+    
+    return rightUtilityButtons;
+}
+
+#pragma mark - Asynchronous data loading
+
+- (void)didRowDataLoad:(NSArray *)data {
+    
+    self.rowData = [NSMutableArray arrayWithArray:data];
+    
+    [self.tableView reloadData];
+}
+
+#pragma mark - Cell actions
+
+- (void)removeOwnedBook:(id)bookID {
+    
+    [self.api doDelete:[NSString stringWithFormat:@"/owned_books/%@", bookID]];
+}
+
+#pragma mark - SWTableViewCell delgate
+
+- (void)swipeableTableViewCell:(SWTableViewCell *)cell didTriggerLeftUtilityButtonWithIndex:(NSInteger)index {
+    switch (index) {
+        case 0:
+            NSLog(@"check button was pressed");
+            break;
+        case 1:
+            NSLog(@"clock button was pressed");
+            break;
+        case 2:
+            NSLog(@"cross button was pressed");
+            break;
+        case 3:
+            NSLog(@"list button was pressed");
+        default:
+            break;
+    }
+}
+
+- (void)swipeableTableViewCell:(SWTableViewCell *)cell didTriggerRightUtilityButtonWithIndex:(NSInteger)index {
+    
+    NSIndexPath *indexPath = [self.tableView indexPathForCell:cell];
+    
+    switch (index) {
+        case 0:
+            // Remove the record on the server
+            [self removeOwnedBook:[[self.rowData objectAtIndex:indexPath.row] objectForKey:@"id"]];
+            
+            // Remove the row from data array
+            [self.rowData removeObjectAtIndex:indexPath.row];
+            
+            // Delete the row from the table
+            [self.tableView deleteRowsAtIndexPaths:@[indexPath] withRowAnimation:UITableViewRowAnimationFade];
+            break;
+        default:
+            break;
+    }
 }
 
 #pragma mark - Table view data source
@@ -42,25 +127,39 @@
 
 - (NSInteger)tableView:(UITableView *)tableView numberOfRowsInSection:(NSInteger)section {
 
-    return [self.bookList count];
+    return [self.rowData count];
 }
 
 
 - (UITableViewCell *)tableView:(UITableView *)tableView cellForRowAtIndexPath:(NSIndexPath *)indexPath {
-    UITableViewCell *cell = [tableView dequeueReusableCellWithIdentifier:@"bookCell" forIndexPath:indexPath];
     
-    cell.textLabel.text = [self.bookList objectAtIndex:indexPath.row];
+    BookTableViewCell *cell = (BookTableViewCell *) [tableView dequeueReusableCellWithIdentifier:@"bookCell" forIndexPath:indexPath];
+    
+    cell.delegate = self;
+    
+    cell.leftUtilityButtons = [self leftButtons];
+    cell.rightUtilityButtons = [self rightButtons];
+    
+    cell.cellInformation = [[self.rowData objectAtIndex:indexPath.row] objectForKey:@"book"];
+    [cell loadInformation];
+    
+    cell.controller = self;
     
     return cell;
 }
 
-/*
+- (CGFloat)tableView:(UITableView *)tableView heightForRowAtIndexPath:(NSIndexPath *)indexPath {
+    
+    // height of cell content view
+    return 175;
+}
+
+
 // Override to support conditional editing of the table view.
 - (BOOL)tableView:(UITableView *)tableView canEditRowAtIndexPath:(NSIndexPath *)indexPath {
-    // Return NO if you do not want the specified item to be editable.
-    return YES;
+    
+    return NO;
 }
-*/
 
 /*
 // Override to support editing the table view.

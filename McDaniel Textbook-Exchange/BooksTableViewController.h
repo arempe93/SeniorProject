@@ -7,7 +7,17 @@
 //
 
 #import <UIKit/UIKit.h>
+#import "APIConnectionManager.h"
+#import "SWTableViewCell.h"
 
-@interface BooksTableViewController : UITableViewController
+@interface BooksTableViewController : UITableViewController <SWTableViewCellDelegate>
+
+@property APIConnectionManager *api;
+@property NSMutableArray *rowData;
+
+- (NSArray *)leftButtons;
+- (NSArray *)rightButtons;
+
+- (void)removeOwnedBook:(id)bookID;
 
 @end

@@ -55,6 +55,7 @@
     
     NSMutableArray *rightUtilityButtons = [NSMutableArray new];
     
+    // delete button
     [rightUtilityButtons sw_addUtilityButtonWithColor: /* #ff2d55 */
      [UIColor colorWithRed:1 green:0.176f blue:0.333f alpha:1.0] title:@"X"];
     

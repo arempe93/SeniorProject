@@ -10,6 +10,8 @@
 #import "AppDelegate.h"
 
 int main(int argc, char * argv[]) {
+    
+    [[UIApplication sharedApplication] setStatusBarStyle:UIStatusBarStyleLightContent];
     @autoreleasepool {
         return UIApplicationMain(argc, argv, nil, NSStringFromClass([AppDelegate class]));
     }
