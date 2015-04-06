@@ -98,9 +98,19 @@
 }
 
 - (void)swipeableTableViewCell:(SWTableViewCell *)cell didTriggerRightUtilityButtonWithIndex:(NSInteger)index {
+    
+    NSIndexPath *indexPath = [self.tableView indexPathForCell:cell];
+    
     switch (index) {
         case 0:
-            NSLog(@"More button was pressed");
+            // Remove the record on the server
+            [self removeWishlistBook:[[self.rowData objectAtIndex:indexPath.row] objectForKey:@"id"]];
+            
+            // Remove the row from data array
+            [self.rowData removeObjectAtIndex:indexPath.row];
+            
+            // Delete the row from the table
+            [self.tableView deleteRowsAtIndexPaths:@[indexPath] withRowAnimation:UITableViewRowAnimationFade];
             break;
         default:
             break;
@@ -154,17 +164,6 @@
 - (void)tableView:(UITableView *)tableView commitEditingStyle:(UITableViewCellEditingStyle)editingStyle forRowAtIndexPath:(NSIndexPath *)indexPath {
     if (editingStyle == UITableViewCellEditingStyleDelete) {
         
-        // Remove the record on the server
-        
-        [self removeWishlistBook:[[self.rowData objectAtIndex:indexPath.row] objectForKey:@"id"]];
-        
-        // Remove the row from data array
-        
-        [self.rowData removeObjectAtIndex:indexPath.row];
-        
-        // Delete the row from the table
-        
-        [tableView deleteRowsAtIndexPaths:@[indexPath] withRowAnimation:UITableViewRowAnimationFade];
     } else if (editingStyle == UITableViewCellEditingStyleInsert) {
         // Create a new instance of the appropriate class, insert it into the array, and add a new row to the table view
     }   

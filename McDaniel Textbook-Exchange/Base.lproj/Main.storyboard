@@ -89,7 +89,11 @@
                             <outlet property="delegate" destination="zrF-9W-Pnd" id="9hQ-9a-T9v"/>
                         </connections>
                     </tableView>
-                    <navigationItem key="navigationItem" title="Wishlist" id="EBx-tz-YDb"/>
+                    <navigationItem key="navigationItem" title="Wishlist" id="EBx-tz-YDb">
+                        <barButtonItem key="rightBarButtonItem" style="plain" systemItem="add" id="0fC-ke-o4h">
+                            <color key="tintColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                        </barButtonItem>
+                    </navigationItem>
                 </tableViewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="jJm-K7-FtI" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
@@ -205,7 +209,7 @@
                     <navigationBar key="navigationBar" contentMode="scaleToFill" id="lZH-XL-NiD">
                         <rect key="frame" x="0.0" y="0.0" width="320" height="44"/>
                         <autoresizingMask key="autoresizingMask"/>
-                        <color key="barTintColor" red="0.20625546395464497" green="0.63222420933734935" blue="0.17846845929814356" alpha="1" colorSpace="calibratedRGB"/>
+                        <color key="barTintColor" red="0.30980393290519714" green="0.83921575546264648" blue="0.42352944612503052" alpha="1" colorSpace="deviceRGB"/>
                         <textAttributes key="titleTextAttributes">
                             <color key="textColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                             <color key="textShadowColor" white="0.66666666666666663" alpha="1" colorSpace="calibratedWhite"/>
