@@ -7,7 +7,11 @@
 //
 
 #import <UIKit/UIKit.h>
+#import "APIConnectionManager.h"
 
 @interface TradesTableViewController : UITableViewController
+
+@property APIConnectionManager *api;
+@property NSMutableArray *rowData;
 
 @end

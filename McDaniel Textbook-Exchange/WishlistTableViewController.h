@@ -7,7 +7,16 @@
 //
 
 #import <UIKit/UIKit.h>
+#import "APIConnectionManager.h"
+#import "SWTableViewCell.h"
 
-@interface WishlistTableViewController : UITableViewController
+@interface WishlistTableViewController : UITableViewController <SWTableViewCellDelegate>
 
+@property APIConnectionManager *api;
+@property NSMutableArray *rowData;
+
+- (NSArray *)leftButtons;
+- (NSArray *)rightButtons;
+
+- (void)removeWishlistBook:(id)bookID;
 @end

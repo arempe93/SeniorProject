@@ -7,10 +7,11 @@
 //
 
 #import "WishlistTableViewController.h"
+#import "WishlistTableViewCell.h"
+#import "APIConnectionManager.h"
 
 @interface WishlistTableViewController ()
 
-@property NSMutableArray *wishlist;
 @end
 
 @implementation WishlistTableViewController
@@ -18,19 +19,103 @@
 - (void)viewDidLoad {
     [super viewDidLoad];
     
-    self.wishlist = [[NSMutableArray alloc] init];
-    [self loadInitialData];
-}
-
-- (void)loadInitialData {
+    // table configuration
     
-    [self.wishlist addObject:@"Velocity"];
-    [self.wishlist addObject:@"Fahrenheit 451"];
+    self.tableView.allowsMultipleSelectionDuringEditing = NO;
+    
+    // get table data
+    
+    self.api = [APIConnectionManager sharedConnection];
+    self.api.api_key = @"ya29.LAFWYdlZwK0pO3OsRd7oCs_ZwzOB2-XMZrdj1XGwviN54CSBSkJgdanLcWqHzGl4eI0BmZ9hrKPRmg";
+    
+    [self.api doQuery:@"/users/1/wanted_books" caller:self callback:@selector(didRowDataLoad:)];
 }
 
 - (void)didReceiveMemoryWarning {
     [super didReceiveMemoryWarning];
     // Dispose of any resources that can be recreated.
+}
+
+#pragma mark - SWTableViewCell buttons
+
+- (NSArray *) leftButtons {
+    
+    NSMutableArray *leftUtilityButtons = [NSMutableArray new];
+    
+    [leftUtilityButtons sw_addUtilityButtonWithColor: /* #007aff */
+     [UIColor colorWithRed:0 green:0.478f blue:1 alpha:1.0] title:@"1"];
+    
+    [leftUtilityButtons sw_addUtilityButtonWithColor: /* #ffcc00 */
+     [UIColor colorWithRed:1 green:0.8f blue:0 alpha:1.0] title:@"2"];
+    
+    return leftUtilityButtons;
+}
+
+- (NSArray *) rightButtons {
+    
+    NSMutableArray *rightUtilityButtons = [NSMutableArray new];
+    
+    // delete button
+    [rightUtilityButtons sw_addUtilityButtonWithColor: /* #ff2d55 */
+     [UIColor colorWithRed:1 green:0.176f blue:0.333f alpha:1.0] title:@"X"];
+    
+    return rightUtilityButtons;
+}
+
+#pragma mark - Asynchronous data loading
+
+- (void)didRowDataLoad:(NSArray *)data {
+    
+    self.rowData = [NSMutableArray arrayWithArray:data];
+
+    [self.tableView reloadData];
+}
+
+#pragma mark - Cell actions
+
+- (void)removeWishlistBook:(id)bookID {
+    
+    [self.api doDelete:[NSString stringWithFormat:@"/wanted_books/%@", bookID]];
+}
+
+#pragma mark - SWTableViewCell delgate
+
+- (void)swipeableTableViewCell:(SWTableViewCell *)cell didTriggerLeftUtilityButtonWithIndex:(NSInteger)index {
+    switch (index) {
+        case 0:
+            NSLog(@"check button was pressed");
+            break;
+        case 1:
+            NSLog(@"clock button was pressed");
+            break;
+        case 2:
+            NSLog(@"cross button was pressed");
+            break;
+        case 3:
+            NSLog(@"list button was pressed");
+        default:
+            break;
+    }
+}
+
+- (void)swipeableTableViewCell:(SWTableViewCell *)cell didTriggerRightUtilityButtonWithIndex:(NSInteger)index {
+    
+    NSIndexPath *indexPath = [self.tableView indexPathForCell:cell];
+    
+    switch (index) {
+        case 0:
+            // Remove the record on the server
+            [self removeWishlistBook:[[self.rowData objectAtIndex:indexPath.row] objectForKey:@"id"]];
+            
+            // Remove the row from data array
+            [self.rowData removeObjectAtIndex:indexPath.row];
+            
+            // Delete the row from the table
+            [self.tableView deleteRowsAtIndexPaths:@[indexPath] withRowAnimation:UITableViewRowAnimationFade];
+            break;
+        default:
+            break;
+    }
 }
 
 #pragma mark - Table view data source
@@ -42,33 +127,44 @@
 
 - (NSInteger)tableView:(UITableView *)tableView numberOfRowsInSection:(NSInteger)section {
 
-    return [self.wishlist count];
+    return [self.rowData count];
 }
 
 
 - (UITableViewCell *)tableView:(UITableView *)tableView cellForRowAtIndexPath:(NSIndexPath *)indexPath {
-    UITableViewCell *cell = [tableView dequeueReusableCellWithIdentifier:@"wishlistCell" forIndexPath:indexPath];
+    WishlistTableViewCell *cell = (WishlistTableViewCell *) [tableView dequeueReusableCellWithIdentifier:@"wishlistCell" forIndexPath:indexPath];
     
-    cell.textLabel.text = [self.wishlist objectAtIndex:indexPath.row];
+    cell.delegate = self;
+    
+    cell.leftUtilityButtons = [self leftButtons];
+    cell.rightUtilityButtons = [self rightButtons];
+    
+    cell.cellInformation = [[self.rowData objectAtIndex:indexPath.row] objectForKey:@"book"];
+    [cell loadInformation];
+    
+    cell.controller = self;
     
     return cell;
 }
 
+- (CGFloat)tableView:(UITableView *)tableView heightForRowAtIndexPath:(NSIndexPath *)indexPath {
+    
+    // height of cell content view
+    return 175;
+}
 
-/*
+
 // Override to support conditional editing of the table view.
 - (BOOL)tableView:(UITableView *)tableView canEditRowAtIndexPath:(NSIndexPath *)indexPath {
-    // Return NO if you do not want the specified item to be editable.
-    return YES;
+    
+    return NO;
 }
-*/
 
 /*
 // Override to support editing the table view.
 - (void)tableView:(UITableView *)tableView commitEditingStyle:(UITableViewCellEditingStyle)editingStyle forRowAtIndexPath:(NSIndexPath *)indexPath {
     if (editingStyle == UITableViewCellEditingStyleDelete) {
-        // Delete the row from the data source
-        [tableView deleteRowsAtIndexPaths:@[indexPath] withRowAnimation:UITableViewRowAnimationFade];
+ 
     } else if (editingStyle == UITableViewCellEditingStyleInsert) {
         // Create a new instance of the appropriate class, insert it into the array, and add a new row to the table view
     }   
