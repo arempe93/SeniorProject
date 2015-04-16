@@ -7,10 +7,10 @@
 //
 
 #import "TradesTableViewController.h"
+#import "Trade.h"
 
 @interface TradesTableViewController ()
 
-@property NSMutableArray *tradesList;
 @end
 
 @implementation TradesTableViewController
@@ -18,19 +18,30 @@
 - (void)viewDidLoad {
     [super viewDidLoad];
     
-    self.tradesList = [[NSMutableArray alloc] init];
-    [self loadInitialData];
-}
-
-- (void)loadInitialData {
+    // table configuration
     
-    [self.tradesList addObject:@"Trade request from Rick"];
-    [self.tradesList addObject:@"Trade request from Meg"];
+    self.tableView.allowsMultipleSelectionDuringEditing = NO;
+    
+    // get table data
+    
+    self.api = [APIConnectionManager sharedConnection];
+    self.api.api_key = @"ya29.LAFWYdlZwK0pO3OsRd7oCs_ZwzOB2-XMZrdj1XGwviN54CSBSkJgdanLcWqHzGl4eI0BmZ9hrKPRmg";
+    
+    [self.api doQuery:@"/users/1/trades" caller:self callback:@selector(didRowDataLoad:)];
 }
 
 - (void)didReceiveMemoryWarning {
     [super didReceiveMemoryWarning];
     // Dispose of any resources that can be recreated.
+}
+
+#pragma mark - Asynchronous data loading
+
+- (void)didRowDataLoad:(NSArray *)data {
+    
+    self.rowData = [NSMutableArray arrayWithArray:data];
+    
+    [self.tableView reloadData];
 }
 
 #pragma mark - Table view data source
@@ -42,13 +53,16 @@
 
 - (NSInteger)tableView:(UITableView *)tableView numberOfRowsInSection:(NSInteger)section {
 
-    return [self.tradesList count];
+    return [self.rowData count];
 }
 
 - (UITableViewCell *)tableView:(UITableView *)tableView cellForRowAtIndexPath:(NSIndexPath *)indexPath {
+    
     UITableViewCell *cell = [tableView dequeueReusableCellWithIdentifier:@"tradeCell" forIndexPath:indexPath];
     
-    cell.textLabel.text = [self.tradesList objectAtIndex:indexPath.row];
+    Trade *trade = [[Trade alloc] initWithDict:[self.rowData objectAtIndex:indexPath.row]];
+    
+    cell.textLabel.text = [NSString stringWithFormat:@"%@", [[self.rowData objectAtIndex:indexPath.row] objectForKey:@"id"]];
     
     return cell;
 }
