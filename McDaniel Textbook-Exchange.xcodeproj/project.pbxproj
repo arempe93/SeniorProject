@@ -10,6 +10,7 @@
 		F526C4BD1AAF5E60004699EA /* APIConnectionManager.m in Sources */ = {isa = PBXBuildFile; fileRef = F526C4BC1AAF5E60004699EA /* APIConnectionManager.m */; };
 		F526C4C11AAF6AC3004699EA /* ProfileViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = F526C4C01AAF6AC3004699EA /* ProfileViewController.m */; };
 		F52D8DAF1AD6F5BE002989D9 /* Trade.m in Sources */ = {isa = PBXBuildFile; fileRef = F52D8DAE1AD6F5BE002989D9 /* Trade.m */; };
+		F53EC9C01AE0306900778F55 /* TradeTableViewCell.m in Sources */ = {isa = PBXBuildFile; fileRef = F53EC9BF1AE0306900778F55 /* TradeTableViewCell.m */; };
 		F54E6BBA1AD314A4002F3C86 /* BookTableViewCell.m in Sources */ = {isa = PBXBuildFile; fileRef = F54E6BB91AD314A4002F3C86 /* BookTableViewCell.m */; };
 		F5951F081AC1D85C00A7CF1C /* WishlistTableViewCell.m in Sources */ = {isa = PBXBuildFile; fileRef = F5951F071AC1D85C00A7CF1C /* WishlistTableViewCell.m */; };
 		F5C9872F1ACDD3250055B9AF /* NSMutableArray+SWUtilityButtons.m in Sources */ = {isa = PBXBuildFile; fileRef = F5C987241ACDD3250055B9AF /* NSMutableArray+SWUtilityButtons.m */; };
@@ -47,6 +48,8 @@
 		F526C4C01AAF6AC3004699EA /* ProfileViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = ProfileViewController.m; sourceTree = "<group>"; };
 		F52D8DAD1AD6F5BE002989D9 /* Trade.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = Trade.h; sourceTree = "<group>"; };
 		F52D8DAE1AD6F5BE002989D9 /* Trade.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = Trade.m; sourceTree = "<group>"; };
+		F53EC9BE1AE0306900778F55 /* TradeTableViewCell.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = TradeTableViewCell.h; sourceTree = "<group>"; };
+		F53EC9BF1AE0306900778F55 /* TradeTableViewCell.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = TradeTableViewCell.m; sourceTree = "<group>"; };
 		F54E6BB81AD314A4002F3C86 /* BookTableViewCell.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = BookTableViewCell.h; sourceTree = "<group>"; };
 		F54E6BB91AD314A4002F3C86 /* BookTableViewCell.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = BookTableViewCell.m; sourceTree = "<group>"; };
 		F5951F061AC1D85C00A7CF1C /* WishlistTableViewCell.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = WishlistTableViewCell.h; sourceTree = "<group>"; };
@@ -127,6 +130,8 @@
 				F5951F071AC1D85C00A7CF1C /* WishlistTableViewCell.m */,
 				F54E6BB81AD314A4002F3C86 /* BookTableViewCell.h */,
 				F54E6BB91AD314A4002F3C86 /* BookTableViewCell.m */,
+				F53EC9BE1AE0306900778F55 /* TradeTableViewCell.h */,
+				F53EC9BF1AE0306900778F55 /* TradeTableViewCell.m */,
 			);
 			name = cells;
 			sourceTree = "<group>";
@@ -339,6 +344,7 @@
 				F5C987341ACDD3250055B9AF /* SWUtilityButtonView.m in Sources */,
 				F5E84AEC1AA62FA200DAE687 /* AppDelegate.m in Sources */,
 				F5C987331ACDD3250055B9AF /* SWUtilityButtonTapGestureRecognizer.m in Sources */,
+				F53EC9C01AE0306900778F55 /* TradeTableViewCell.m in Sources */,
 				F5C9872F1ACDD3250055B9AF /* NSMutableArray+SWUtilityButtons.m in Sources */,
 				F5E84B0F1AA635D800DAE687 /* BooksTableViewController.m in Sources */,
 				F54E6BBA1AD314A4002F3C86 /* BookTableViewCell.m in Sources */,

@@ -7,6 +7,7 @@
 //
 
 #import "TradesTableViewController.h"
+#import "TradeTableViewCell.h"
 #import "Trade.h"
 
 @interface TradesTableViewController ()
@@ -35,6 +36,32 @@
     // Dispose of any resources that can be recreated.
 }
 
+#pragma mark - SWTableViewCell buttons
+
+- (NSArray *) leftButtons {
+    
+    NSMutableArray *leftUtilityButtons = [NSMutableArray new];
+    
+    [leftUtilityButtons sw_addUtilityButtonWithColor: /* #007aff */
+     [UIColor colorWithRed:0 green:0.478f blue:1 alpha:1.0] title:@"1"];
+    
+    [leftUtilityButtons sw_addUtilityButtonWithColor: /* #ffcc00 */
+     [UIColor colorWithRed:1 green:0.8f blue:0 alpha:1.0] title:@"2"];
+    
+    return leftUtilityButtons;
+}
+
+- (NSArray *) rightButtons {
+    
+    NSMutableArray *rightUtilityButtons = [NSMutableArray new];
+    
+    // delete button
+    [rightUtilityButtons sw_addUtilityButtonWithColor: /* #ff2d55 */
+     [UIColor colorWithRed:1 green:0.176f blue:0.333f alpha:1.0] title:@"X"];
+    
+    return rightUtilityButtons;
+}
+
 #pragma mark - Asynchronous data loading
 
 - (void)didRowDataLoad:(NSArray *)data {
@@ -42,6 +69,39 @@
     self.rowData = [NSMutableArray arrayWithArray:data];
     
     [self.tableView reloadData];
+}
+
+#pragma mark - SWTableViewCell delgate
+
+- (void)swipeableTableViewCell:(SWTableViewCell *)cell didTriggerLeftUtilityButtonWithIndex:(NSInteger)index {
+    switch (index) {
+        case 0:
+            NSLog(@"check button was pressed");
+            break;
+        case 1:
+            NSLog(@"clock button was pressed");
+            break;
+        case 2:
+            NSLog(@"cross button was pressed");
+            break;
+        case 3:
+            NSLog(@"list button was pressed");
+        default:
+            break;
+    }
+}
+
+- (void)swipeableTableViewCell:(SWTableViewCell *)cell didTriggerRightUtilityButtonWithIndex:(NSInteger)index {
+    
+    NSIndexPath *indexPath = [self.tableView indexPathForCell:cell];
+    
+    switch (index) {
+        case 0:
+
+            break;
+        default:
+            break;
+    }
 }
 
 #pragma mark - Table view data source
@@ -58,11 +118,18 @@
 
 - (UITableViewCell *)tableView:(UITableView *)tableView cellForRowAtIndexPath:(NSIndexPath *)indexPath {
     
-    UITableViewCell *cell = [tableView dequeueReusableCellWithIdentifier:@"tradeCell" forIndexPath:indexPath];
+    TradeTableViewCell *cell = [tableView dequeueReusableCellWithIdentifier:@"tradeCell" forIndexPath:indexPath];
     
     Trade *trade = [[Trade alloc] initWithDict:[self.rowData objectAtIndex:indexPath.row]];
     
-    cell.textLabel.text = [NSString stringWithFormat:@"%@", [[self.rowData objectAtIndex:indexPath.row] objectForKey:@"id"]];
+    cell.delegate = self;
+    cell.controller = self;
+
+    cell.leftUtilityButtons = [self leftButtons];
+    cell.rightUtilityButtons = [self rightButtons];
+    
+    cell.trade = trade;
+    [cell loadInformation];
     
     return cell;
 }
