@@ -68,6 +68,8 @@
     
     self.rowData = [NSMutableArray arrayWithArray:data];
     
+    NSLog(@"%@", self.rowData);
+    
     [self.tableView reloadData];
 }
 
@@ -93,8 +95,6 @@
 
 - (void)swipeableTableViewCell:(SWTableViewCell *)cell didTriggerRightUtilityButtonWithIndex:(NSInteger)index {
     
-    NSIndexPath *indexPath = [self.tableView indexPathForCell:cell];
-    
     switch (index) {
         case 0:
 
@@ -118,7 +118,7 @@
 
 - (UITableViewCell *)tableView:(UITableView *)tableView cellForRowAtIndexPath:(NSIndexPath *)indexPath {
     
-    TradeTableViewCell *cell = [tableView dequeueReusableCellWithIdentifier:@"tradeCell" forIndexPath:indexPath];
+    TradeTableViewCell *cell = (TradeTableViewCell *) [tableView dequeueReusableCellWithIdentifier:@"tradeCell" forIndexPath:indexPath];
     
     Trade *trade = [[Trade alloc] initWithDict:[self.rowData objectAtIndex:indexPath.row]];
     

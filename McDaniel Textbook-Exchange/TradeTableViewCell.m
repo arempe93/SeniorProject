@@ -35,7 +35,7 @@
     
     self.userImage.image = avatar;
     
-    self.userName.text = [self.trade.tradeData objectForKey:@"receiver_id"];
+    self.userName.text = [NSString stringWithFormat:@"User: %@", [self.trade.tradeData objectForKey:@"receiver_id"]];
     
     self.receivedItems.text = [NSString stringWithFormat:@"Books: %@", [self.trade.tradeData objectForKey:@"receiver_books"]];
     [self.receivedItems sizeToFit];
