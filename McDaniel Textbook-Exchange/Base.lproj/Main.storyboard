@@ -211,12 +211,12 @@
         <scene sceneID="Kn9-zy-yZs">
             <objects>
                 <tableViewController title="Trades" id="iQX-Os-We9" customClass="TradesTableViewController" sceneMemberID="viewController">
-                    <tableView key="view" clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" dataMode="prototypes" style="plain" separatorStyle="default" rowHeight="175" sectionHeaderHeight="22" sectionFooterHeight="22" id="IRT-5M-Ac5">
+                    <tableView key="view" clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" dataMode="prototypes" style="plain" separatorStyle="default" rowHeight="158" sectionHeaderHeight="22" sectionFooterHeight="22" id="IRT-5M-Ac5">
                         <rect key="frame" x="0.0" y="0.0" width="600" height="600"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                         <prototypes>
-                            <tableViewCell contentMode="scaleToFill" selectionStyle="default" indentationWidth="10" reuseIdentifier="tradeCell" rowHeight="175" id="1B5-JK-Ubp" customClass="TradeTableViewCell">
+                            <tableViewCell contentMode="scaleToFill" selectionStyle="default" indentationWidth="10" reuseIdentifier="tradeCell" rowHeight="158" id="1B5-JK-Ubp" customClass="TradeTableViewCell">
                                 <autoresizingMask key="autoresizingMask"/>
                                 <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" tableViewCell="1B5-JK-Ubp" id="Bo0-pR-lzc">
                                     <autoresizingMask key="autoresizingMask"/>
@@ -234,19 +234,19 @@
                                             <color key="textColor" cocoaTouchSystemColor="darkTextColor"/>
                                             <nil key="highlightedColor"/>
                                         </label>
-                                        <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="They get" lineBreakMode="tailTruncation" numberOfLines="2" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="Ovr-R6-zuV">
-                                            <rect key="frame" x="116" y="124" width="476" height="47"/>
+                                        <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="They get" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="Ovr-R6-zuV">
+                                            <rect key="frame" x="116" y="118" width="476" height="21"/>
                                             <constraints>
-                                                <constraint firstAttribute="height" constant="47" id="EIi-ca-5JL"/>
+                                                <constraint firstAttribute="height" constant="21" id="EIi-ca-5JL"/>
                                             </constraints>
                                             <fontDescription key="fontDescription" type="system" pointSize="17"/>
                                             <color key="textColor" white="0.33333333333333331" alpha="1" colorSpace="calibratedWhite"/>
                                             <nil key="highlightedColor"/>
                                         </label>
-                                        <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="You get" lineBreakMode="tailTruncation" numberOfLines="2" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="T9I-E5-veZ">
-                                            <rect key="frame" x="116" y="57" width="476" height="47"/>
+                                        <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="You get" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="T9I-E5-veZ">
+                                            <rect key="frame" x="116" y="57" width="476" height="21"/>
                                             <constraints>
-                                                <constraint firstAttribute="height" constant="47" id="KO3-HM-HpS"/>
+                                                <constraint firstAttribute="height" constant="21" id="KO3-HM-HpS"/>
                                             </constraints>
                                             <fontDescription key="fontDescription" name="HelveticaNeue" family="Helvetica Neue" pointSize="17"/>
                                             <color key="textColor" white="0.33333333333333331" alpha="1" colorSpace="calibratedWhite"/>
@@ -262,7 +262,7 @@
                                         <constraint firstAttribute="trailingMargin" secondItem="jXq-eb-KaO" secondAttribute="trailing" id="bya-eH-1Qj"/>
                                         <constraint firstItem="Ovr-R6-zuV" firstAttribute="leading" secondItem="Bo0-pR-lzc" secondAttribute="leadingMargin" constant="108" id="cYd-8i-CXC"/>
                                         <constraint firstItem="T9I-E5-veZ" firstAttribute="top" secondItem="jXq-eb-KaO" secondAttribute="bottom" constant="8" id="fRp-TO-d2I"/>
-                                        <constraint firstItem="Ovr-R6-zuV" firstAttribute="top" secondItem="T9I-E5-veZ" secondAttribute="bottom" constant="20" id="ujx-F9-u0i"/>
+                                        <constraint firstItem="Ovr-R6-zuV" firstAttribute="top" secondItem="T9I-E5-veZ" secondAttribute="bottom" constant="40" id="ujx-F9-u0i"/>
                                         <constraint firstAttribute="trailingMargin" secondItem="Ovr-R6-zuV" secondAttribute="trailing" id="whO-1T-bxC"/>
                                         <constraint firstItem="jXq-eb-KaO" firstAttribute="leading" secondItem="WlP-5B-Tux" secondAttribute="trailing" constant="8" id="xr7-aS-Dsv"/>
                                     </constraints>

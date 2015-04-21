@@ -23,11 +23,11 @@
     
     self.receivedItems.lineBreakMode = NSLineBreakByWordWrapping;
     self.receivedItems.adjustsFontSizeToFitWidth = NO;
-    self.receivedItems.numberOfLines = 2;
+    self.receivedItems.numberOfLines = 1;
     
     self.sentItems.lineBreakMode = NSLineBreakByWordWrapping;
     self.sentItems.adjustsFontSizeToFitWidth = NO;
-    self.sentItems.numberOfLines = 2;
+    self.sentItems.numberOfLines = 1;
     
     // set view control values
     
@@ -35,12 +35,16 @@
     
     self.userImage.image = avatar;
     
-    self.userName.text = [NSString stringWithFormat:@"User: %@", [self.trade.tradeData objectForKey:@"receiver_id"]];
+    self.userName.text = [[self.trade.tradeData objectForKey:@"sender"] objectForKey:@"name"];
     
-    self.receivedItems.text = [NSString stringWithFormat:@"Books: %@", [self.trade.tradeData objectForKey:@"receiver_books"]];
+    NSArray *receieverBooks = [self.trade.tradeData objectForKey:@"receiver_books"];
+    
+    self.receivedItems.text = [NSString stringWithFormat:@"%lu book(s) + $%@", (unsigned long)[receieverBooks count], [self.trade.tradeData objectForKey:@"receiver_extras"]];
     [self.receivedItems sizeToFit];
     
-    self.sentItems.text = [NSString stringWithFormat:@"Books: %@", [self.trade.tradeData objectForKey:@"sender_books"]];
+    NSArray *senderBooks = [self.trade.tradeData objectForKey:@"sender_books"];
+    
+    self.sentItems.text = [NSString stringWithFormat:@"%lu book(s) + $%@", (unsigned long)[senderBooks count], [self.trade.tradeData objectForKey:@"sender_extras"]];
     [self.sentItems sizeToFit];
 }
 
