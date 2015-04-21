@@ -272,6 +272,7 @@
                                     <outlet property="sentItems" destination="Ovr-R6-zuV" id="cJ7-Fp-wR9"/>
                                     <outlet property="userImage" destination="WlP-5B-Tux" id="Azc-r3-MXa"/>
                                     <outlet property="userName" destination="jXq-eb-KaO" id="bJY-MN-K4M"/>
+                                    <segue destination="XjL-1i-YWi" kind="show" identifier="showTradeDetail" id="WqO-dE-yAM"/>
                                 </connections>
                             </tableViewCell>
                         </prototypes>
@@ -285,6 +286,25 @@
                 <placeholder placeholderIdentifier="IBFirstResponder" id="1Zx-O8-fVm" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
             <point key="canvasLocation" x="1964" y="771"/>
+        </scene>
+        <!--Trade Detail-->
+        <scene sceneID="m7K-5i-CyN">
+            <objects>
+                <viewController title="Trade Detail" id="XjL-1i-YWi" customClass="TradeDetailViewController" sceneMemberID="viewController">
+                    <layoutGuides>
+                        <viewControllerLayoutGuide type="top" id="lMO-FS-zUc"/>
+                        <viewControllerLayoutGuide type="bottom" id="bJt-Ka-JXJ"/>
+                    </layoutGuides>
+                    <view key="view" contentMode="scaleToFill" id="Xyp-p2-T17">
+                        <rect key="frame" x="0.0" y="0.0" width="600" height="600"/>
+                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                    </view>
+                    <navigationItem key="navigationItem" title="View Trade" id="6ig-hf-wAg"/>
+                </viewController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="l33-15-T0h" userLabel="First Responder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="2730" y="771"/>
         </scene>
         <!--Profile-->
         <scene sceneID="v0g-S3-QPf">
