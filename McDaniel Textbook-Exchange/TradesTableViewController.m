@@ -186,7 +186,7 @@
     
     TradeDetailViewController *destination = (TradeDetailViewController *) [segue destinationViewController];
 
-    NSLog(@"%@, %@", destination, sender);
+    destination.trade = (Trade *) sender;
 }
 
 

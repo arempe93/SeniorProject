@@ -16,7 +16,14 @@
 
 - (void)viewDidLoad {
     [super viewDidLoad];
-    // Do any additional setup after loading the view.
+    
+    // set up information to match trade
+    self.userName.text = [[self.trade.tradeData objectForKey:@"sender"] objectForKey:@"name"];
+    self.userEmail.text = [[self.trade.tradeData objectForKey:@"sender"] objectForKey:@"email"];
+    
+    UIImage *avatar = [UIImage imageWithData:[NSData dataWithContentsOfURL:[NSURL URLWithString:@"https://lh3.googleusercontent.com/-XdUIqdMkCWA/AAAAAAAAAAI/AAAAAAAAAAA/4252rscbv5M/photo.jpg"]]];
+    
+    self.userImage.image = avatar;
 }
 
 - (void)didReceiveMemoryWarning {

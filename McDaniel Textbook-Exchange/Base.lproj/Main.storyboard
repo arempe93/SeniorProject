@@ -298,9 +298,45 @@
                     <view key="view" contentMode="scaleToFill" id="Xyp-p2-T17">
                         <rect key="frame" x="0.0" y="0.0" width="600" height="600"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <subviews>
+                            <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" translatesAutoresizingMaskIntoConstraints="NO" id="w8A-JT-jAd">
+                                <rect key="frame" x="16" y="79" width="150" height="150"/>
+                                <constraints>
+                                    <constraint firstAttribute="height" constant="150" id="EeY-n2-qIT"/>
+                                    <constraint firstAttribute="width" constant="150" id="hFr-M6-Ui3"/>
+                                </constraints>
+                            </imageView>
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Email" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="7v3-S4-l6K">
+                                <rect key="frame" x="174" y="146" width="410" height="21"/>
+                                <fontDescription key="fontDescription" type="system" pointSize="17"/>
+                                <color key="textColor" white="0.33333333333333331" alpha="1" colorSpace="calibratedWhite"/>
+                                <nil key="highlightedColor"/>
+                            </label>
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Username" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="4zG-Bg-C4t">
+                                <rect key="frame" x="174" y="117" width="410" height="21"/>
+                                <fontDescription key="fontDescription" type="boldSystem" pointSize="17"/>
+                                <color key="textColor" cocoaTouchSystemColor="darkTextColor"/>
+                                <nil key="highlightedColor"/>
+                            </label>
+                        </subviews>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                        <constraints>
+                            <constraint firstItem="w8A-JT-jAd" firstAttribute="leading" secondItem="Xyp-p2-T17" secondAttribute="leadingMargin" id="1Yp-hJ-wei"/>
+                            <constraint firstAttribute="trailingMargin" secondItem="7v3-S4-l6K" secondAttribute="trailing" id="JPO-Dk-rAg"/>
+                            <constraint firstItem="7v3-S4-l6K" firstAttribute="top" secondItem="4zG-Bg-C4t" secondAttribute="bottom" constant="8" id="K36-Pw-xHz"/>
+                            <constraint firstItem="4zG-Bg-C4t" firstAttribute="top" secondItem="lMO-FS-zUc" secondAttribute="bottom" constant="53" id="Pdt-U1-6Ab"/>
+                            <constraint firstItem="4zG-Bg-C4t" firstAttribute="leading" secondItem="w8A-JT-jAd" secondAttribute="trailing" constant="8" id="PhN-LM-jQl"/>
+                            <constraint firstItem="w8A-JT-jAd" firstAttribute="top" secondItem="lMO-FS-zUc" secondAttribute="bottom" constant="15" id="QJ8-R2-wuz"/>
+                            <constraint firstAttribute="trailingMargin" secondItem="4zG-Bg-C4t" secondAttribute="trailing" id="bOk-hH-k4F"/>
+                            <constraint firstItem="7v3-S4-l6K" firstAttribute="leading" secondItem="w8A-JT-jAd" secondAttribute="trailing" constant="8" id="q7F-8i-D52"/>
+                        </constraints>
                     </view>
                     <navigationItem key="navigationItem" title="View Trade" id="6ig-hf-wAg"/>
+                    <connections>
+                        <outlet property="userEmail" destination="7v3-S4-l6K" id="biz-jl-v4e"/>
+                        <outlet property="userImage" destination="w8A-JT-jAd" id="WUe-AP-dW0"/>
+                        <outlet property="userName" destination="4zG-Bg-C4t" id="vIg-eZ-8HC"/>
+                    </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="l33-15-T0h" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>

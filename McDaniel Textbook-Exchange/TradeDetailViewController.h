@@ -7,7 +7,13 @@
 //
 
 #import <UIKit/UIKit.h>
+#import "Trade.h"
 
 @interface TradeDetailViewController : UIViewController
 
+@property Trade *trade;
+
+@property (weak, nonatomic) IBOutlet UIImageView *userImage;
+@property (weak, nonatomic) IBOutlet UILabel *userName;
+@property (weak, nonatomic) IBOutlet UILabel *userEmail;
 @end
