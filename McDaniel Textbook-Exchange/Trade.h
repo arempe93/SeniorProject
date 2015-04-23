@@ -14,9 +14,12 @@
 @property Trade *previous_offer;
 @property NSMutableArray *comparison;
 
--(id)initWithDict:(NSDictionary *)dict;
+- (id)initWithDict:(NSDictionary *)dict;
 
--(BOOL)hasPreviousTrade;
--(NSMutableArray *)compareToPrevious;
+- (BOOL)hasPreviousTrade;
+- (NSMutableArray *)compareToPrevious;
+
+- (NSArray *)yourBooks;
+- (NSArray *)theirBooks;
 
 @end
