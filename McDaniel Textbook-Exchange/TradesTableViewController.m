@@ -29,12 +29,29 @@
     self.api = [APIConnectionManager sharedConnection];
     self.api.api_key = @"ya29.LAFWYdlZwK0pO3OsRd7oCs_ZwzOB2-XMZrdj1XGwviN54CSBSkJgdanLcWqHzGl4eI0BmZ9hrKPRmg";
     
-    [self.api doQuery:@"/users/1/trades" caller:self callback:@selector(didRowDataLoad:)];
+    // initialize refresh control
+    
+    self.refreshControl = [[UIRefreshControl alloc] init];
+    self.refreshControl.backgroundColor = [UIColor darkGrayColor];
+    self.refreshControl.tintColor = [UIColor whiteColor];
+    [self.refreshControl addTarget:self
+                            action:@selector(refreshTrades)
+                  forControlEvents:UIControlEventValueChanged];
+    
+    // get table data
+    [self refreshTrades];
 }
 
 - (void)didReceiveMemoryWarning {
     [super didReceiveMemoryWarning];
     // Dispose of any resources that can be recreated.
+}
+
+- (void)refreshTrades {
+    
+    [self.refreshControl endRefreshing];
+    
+    [self.api doQuery:@"/users/1/trades" caller:self callback:@selector(didRowDataLoad:)];
 }
 
 #pragma mark - SWTableViewCell buttons
