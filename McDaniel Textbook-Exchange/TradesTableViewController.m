@@ -79,9 +79,19 @@
 #pragma mark - SWTableViewCell delgate
 
 - (void)swipeableTableViewCell:(SWTableViewCell *)cell didTriggerLeftUtilityButtonWithIndex:(NSInteger)index {
+    
+    NSIndexPath *indexPath = [self.tableView indexPathForCell:cell];
+    
     switch (index) {
         case 0:
-            NSLog(@"check button was pressed");
+            // Approve the trade
+            [self approveTrade:[[self.rowData objectAtIndex:indexPath.row] objectForKey:@"id"]];
+            
+            // Remove the row from data array
+            [self.rowData removeObjectAtIndex:indexPath.row];
+            
+            // Delete the row from the table
+            [self.tableView deleteRowsAtIndexPaths:@[indexPath] withRowAnimation:UITableViewRowAnimationFade];
             break;
         default:
             break;
@@ -90,13 +100,40 @@
 
 - (void)swipeableTableViewCell:(SWTableViewCell *)cell didTriggerRightUtilityButtonWithIndex:(NSInteger)index {
     
+    NSIndexPath *indexPath = [self.tableView indexPathForCell:cell];
+    
     switch (index) {
         case 0:
-            NSLog(@"cross button was pressed");
+            // Remove the record on the server
+            [self declineTrade:[[self.rowData objectAtIndex:indexPath.row] objectForKey:@"id"]];
+            
+            // Remove the row from data array
+            [self.rowData removeObjectAtIndex:indexPath.row];
+            
+            // Delete the row from the table
+            [self.tableView deleteRowsAtIndexPaths:@[indexPath] withRowAnimation:UITableViewRowAnimationFade];
+            
             break;
         default:
             break;
     }
+}
+
+- (void)approveTrade:(id)tradeID {
+    
+    [self.api doQuery:[NSString stringWithFormat:@"/trades/%@/approve", tradeID] caller:self callback:@selector(tradeApproved:)];
+}
+
+- (void)tradeApproved:(NSDictionary *)data {
+    
+    UIAlertView *approvalAlert = [[UIAlertView alloc] initWithTitle:@"Trade Approved!" message:@"An email has been sent to both of you to set up the exchange" delegate:nil cancelButtonTitle:@"Ok" otherButtonTitles:nil, nil];
+    
+    [approvalAlert show];
+}
+
+- (void)declineTrade:(id)tradeID {
+    
+    [self.api doDelete:[NSString stringWithFormat:@"/trades/%@", tradeID]];
 }
 
 #pragma mark - Table view data source
