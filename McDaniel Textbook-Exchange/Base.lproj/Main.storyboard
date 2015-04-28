@@ -62,7 +62,14 @@
                             <outlet property="delegate" destination="kXr-7x-ApE" id="Pth-qA-oda"/>
                         </connections>
                     </tableView>
-                    <navigationItem key="navigationItem" title="Books" id="Dwm-3f-teB"/>
+                    <navigationItem key="navigationItem" title="Books" id="Dwm-3f-teB">
+                        <barButtonItem key="rightBarButtonItem" systemItem="add" id="hvO-0K-xt8">
+                            <color key="tintColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                            <connections>
+                                <segue destination="vTt-ai-PJe" kind="presentation" identifier="booksSearchSegue" id="5pG-C0-r7l"/>
+                            </connections>
+                        </barButtonItem>
+                    </navigationItem>
                 </tableViewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="jbH-bj-Osv" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
@@ -129,7 +136,7 @@
                         <barButtonItem key="rightBarButtonItem" style="plain" systemItem="add" id="0fC-ke-o4h">
                             <color key="tintColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                             <connections>
-                                <segue destination="vTt-ai-PJe" kind="presentation" id="AyE-tV-3Ad"/>
+                                <segue destination="vTt-ai-PJe" kind="presentation" identifier="wishlistSearchSegue" id="AyE-tV-3Ad"/>
                             </connections>
                         </barButtonItem>
                     </navigationItem>
@@ -141,7 +148,7 @@
         <!--Search for Books-->
         <scene sceneID="rIb-XO-QUu">
             <objects>
-                <viewController id="rdm-Qu-p4x" sceneMemberID="viewController">
+                <viewController id="rdm-Qu-p4x" customClass="BookSearchViewController" sceneMemberID="viewController">
                     <layoutGuides>
                         <viewControllerLayoutGuide type="top" id="V2A-Pz-mBw"/>
                         <viewControllerLayoutGuide type="bottom" id="loa-Tj-op8"/>
@@ -150,41 +157,114 @@
                         <rect key="frame" x="0.0" y="0.0" width="600" height="600"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
-                            <textField opaque="NO" clipsSubviews="YES" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="roundedRect" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="zUq-gf-V4F">
-                                <rect key="frame" x="16" y="285" width="568" height="30"/>
-                                <fontDescription key="fontDescription" type="system" pointSize="14"/>
-                                <textInputTraits key="textInputTraits"/>
-                            </textField>
-                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Lookup by ISBN" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="HwK-Mi-qWp">
-                                <rect key="frame" x="16" y="238" width="568" height="29"/>
-                                <fontDescription key="fontDescription" type="system" pointSize="24"/>
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Lookup by ISBN" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="f2G-gY-4Sr">
+                                <rect key="frame" x="16" y="74" width="568" height="24"/>
+                                <fontDescription key="fontDescription" type="system" pointSize="20"/>
                                 <color key="textColor" cocoaTouchSystemColor="darkTextColor"/>
                                 <nil key="highlightedColor"/>
                             </label>
+                            <textField opaque="NO" clipsSubviews="YES" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="roundedRect" placeholder="e.g. 9780765625991" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="1Oc-XT-h5P">
+                                <rect key="frame" x="16" y="108" width="568" height="30"/>
+                                <fontDescription key="fontDescription" type="system" pointSize="14"/>
+                                <textInputTraits key="textInputTraits"/>
+                            </textField>
+                            <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="rQ2-Az-VVS">
+                                <rect key="frame" x="0.0" y="158" width="600" height="220"/>
+                                <subviews>
+                                    <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" translatesAutoresizingMaskIntoConstraints="NO" id="BY3-I0-AAo">
+                                        <rect key="frame" x="8" y="8" width="150" height="200"/>
+                                        <constraints>
+                                            <constraint firstAttribute="height" constant="200" id="SuS-4x-xOz"/>
+                                            <constraint firstAttribute="width" constant="150" id="axW-PE-fuU"/>
+                                        </constraints>
+                                    </imageView>
+                                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Title" lineBreakMode="tailTruncation" numberOfLines="2" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="sxo-Oz-ggJ">
+                                        <rect key="frame" x="168" y="8" width="424" height="24"/>
+                                        <fontDescription key="fontDescription" type="boldSystem" pointSize="20"/>
+                                        <color key="textColor" cocoaTouchSystemColor="darkTextColor"/>
+                                        <nil key="highlightedColor"/>
+                                    </label>
+                                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Authors" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="fVm-VT-NZx">
+                                        <rect key="frame" x="168" y="42" width="424" height="20"/>
+                                        <fontDescription key="fontDescription" type="system" pointSize="16"/>
+                                        <color key="textColor" white="0.33333333333333331" alpha="1" colorSpace="calibratedWhite"/>
+                                        <nil key="highlightedColor"/>
+                                    </label>
+                                    <button opaque="NO" contentMode="scaleToFill" misplaced="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="Mwh-jb-tp6">
+                                        <rect key="frame" x="168" y="180" width="20" height="22"/>
+                                        <state key="normal" image="cross"/>
+                                        <connections>
+                                            <action selector="clearBook:" destination="rdm-Qu-p4x" eventType="touchUpInside" id="qsB-K2-cMf"/>
+                                        </connections>
+                                    </button>
+                                    <button opaque="NO" contentMode="scaleToFill" misplaced="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="0Jt-jQ-LNb">
+                                        <rect key="frame" x="559" y="180" width="23" height="22"/>
+                                        <state key="normal" image="check">
+                                            <color key="titleColor" red="0.206255464" green="0.63222420930000001" blue="0.17846845929999999" alpha="1" colorSpace="calibratedRGB"/>
+                                        </state>
+                                        <connections>
+                                            <action selector="addBook:" destination="rdm-Qu-p4x" eventType="touchUpInside" id="d53-2A-qwa"/>
+                                        </connections>
+                                    </button>
+                                </subviews>
+                                <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                                <constraints>
+                                    <constraint firstItem="BY3-I0-AAo" firstAttribute="leading" secondItem="rQ2-Az-VVS" secondAttribute="leadingMargin" id="71K-di-dSs"/>
+                                    <constraint firstItem="Mwh-jb-tp6" firstAttribute="leading" secondItem="BY3-I0-AAo" secondAttribute="trailing" constant="10" id="9uk-PM-EpT"/>
+                                    <constraint firstAttribute="height" constant="220" id="BCq-3R-lwu"/>
+                                    <constraint firstAttribute="trailingMargin" secondItem="0Jt-jQ-LNb" secondAttribute="trailing" constant="10" id="DfK-cJ-JAx"/>
+                                    <constraint firstItem="fVm-VT-NZx" firstAttribute="top" secondItem="sxo-Oz-ggJ" secondAttribute="bottom" constant="10" id="I0l-tn-dA0"/>
+                                    <constraint firstItem="fVm-VT-NZx" firstAttribute="leading" secondItem="BY3-I0-AAo" secondAttribute="trailing" constant="10" id="UWY-ph-uzp"/>
+                                    <constraint firstItem="BY3-I0-AAo" firstAttribute="top" secondItem="rQ2-Az-VVS" secondAttribute="topMargin" id="ZtE-7l-SWr"/>
+                                    <constraint firstAttribute="bottomMargin" secondItem="Mwh-jb-tp6" secondAttribute="bottom" constant="10" id="hct-SD-EmA"/>
+                                    <constraint firstItem="sxo-Oz-ggJ" firstAttribute="leading" secondItem="BY3-I0-AAo" secondAttribute="trailing" constant="10" id="jzg-TP-LIb"/>
+                                    <constraint firstAttribute="trailingMargin" secondItem="fVm-VT-NZx" secondAttribute="trailing" id="nwm-Lr-Uiy"/>
+                                    <constraint firstItem="sxo-Oz-ggJ" firstAttribute="top" secondItem="rQ2-Az-VVS" secondAttribute="topMargin" id="vN0-D8-8Vj"/>
+                                    <constraint firstAttribute="trailingMargin" secondItem="sxo-Oz-ggJ" secondAttribute="trailing" id="xdE-hy-4Hy"/>
+                                    <constraint firstAttribute="bottomMargin" secondItem="0Jt-jQ-LNb" secondAttribute="bottom" constant="10" id="yEt-7R-MbU"/>
+                                </constraints>
+                            </view>
                         </subviews>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                         <constraints>
-                            <constraint firstItem="zUq-gf-V4F" firstAttribute="top" secondItem="HwK-Mi-qWp" secondAttribute="bottom" constant="18" id="5hn-sO-4HB"/>
-                            <constraint firstAttribute="trailingMargin" secondItem="zUq-gf-V4F" secondAttribute="trailing" id="O6W-xg-CGD"/>
-                            <constraint firstItem="HwK-Mi-qWp" firstAttribute="leading" secondItem="gUU-lJ-rKN" secondAttribute="leadingMargin" id="W92-hH-t4P"/>
-                            <constraint firstAttribute="centerY" secondItem="zUq-gf-V4F" secondAttribute="centerY" id="Ydh-IM-HhH"/>
-                            <constraint firstAttribute="trailingMargin" secondItem="HwK-Mi-qWp" secondAttribute="trailing" id="aWR-hc-0gZ"/>
-                            <constraint firstItem="zUq-gf-V4F" firstAttribute="leading" secondItem="gUU-lJ-rKN" secondAttribute="leadingMargin" id="baJ-2b-lt6"/>
-                            <constraint firstAttribute="centerX" secondItem="zUq-gf-V4F" secondAttribute="centerX" id="hqg-O7-Jm2"/>
+                            <constraint firstAttribute="trailing" secondItem="rQ2-Az-VVS" secondAttribute="trailing" id="84M-Xt-I8Q"/>
+                            <constraint firstAttribute="trailingMargin" secondItem="f2G-gY-4Sr" secondAttribute="trailing" id="9pB-VX-gep"/>
+                            <constraint firstItem="f2G-gY-4Sr" firstAttribute="top" secondItem="V2A-Pz-mBw" secondAttribute="bottom" constant="10" id="DEc-pK-Idf"/>
+                            <constraint firstItem="1Oc-XT-h5P" firstAttribute="trailing" secondItem="gUU-lJ-rKN" secondAttribute="trailingMargin" id="GaN-Th-NYr"/>
+                            <constraint firstItem="rQ2-Az-VVS" firstAttribute="leading" secondItem="gUU-lJ-rKN" secondAttribute="leading" id="I3H-W1-wka"/>
+                            <constraint firstItem="1Oc-XT-h5P" firstAttribute="top" secondItem="f2G-gY-4Sr" secondAttribute="bottom" constant="10" id="OZf-ah-FOB"/>
+                            <constraint firstItem="f2G-gY-4Sr" firstAttribute="leading" secondItem="gUU-lJ-rKN" secondAttribute="leadingMargin" id="UKy-7G-KHU"/>
+                            <constraint firstItem="1Oc-XT-h5P" firstAttribute="leading" secondItem="gUU-lJ-rKN" secondAttribute="leadingMargin" id="qYV-io-BhW"/>
+                            <constraint firstItem="rQ2-Az-VVS" firstAttribute="top" secondItem="1Oc-XT-h5P" secondAttribute="bottom" constant="20" id="wff-N2-6er"/>
                         </constraints>
                     </view>
                     <navigationItem key="navigationItem" title="Search for Books" id="O68-Sp-lNN">
                         <barButtonItem key="leftBarButtonItem" systemItem="cancel" id="e8F-wE-hsI">
                             <color key="tintColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                            <connections>
+                                <action selector="unwind:" destination="rdm-Qu-p4x" id="hLq-pV-NHL"/>
+                            </connections>
                         </barButtonItem>
                         <barButtonItem key="rightBarButtonItem" systemItem="search" id="B30-6b-K2r">
                             <color key="tintColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                            <connections>
+                                <action selector="bookSearch:" destination="rdm-Qu-p4x" id="Ecs-dh-jOO"/>
+                            </connections>
                         </barButtonItem>
                     </navigationItem>
+                    <connections>
+                        <outlet property="addButton" destination="0Jt-jQ-LNb" id="tHZ-Tv-pgX"/>
+                        <outlet property="bookAuthors" destination="fVm-VT-NZx" id="Mut-VK-cxu"/>
+                        <outlet property="bookImage" destination="BY3-I0-AAo" id="sxF-6w-otJ"/>
+                        <outlet property="bookTitle" destination="sxo-Oz-ggJ" id="iDx-wG-28g"/>
+                        <outlet property="clearButton" destination="Mwh-jb-tp6" id="35o-6a-Vhy"/>
+                        <outlet property="detailView" destination="rQ2-Az-VVS" id="p1Z-3a-DPg"/>
+                        <outlet property="searchField" destination="1Oc-XT-h5P" id="b0f-bL-YiO"/>
+                    </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="ij9-Vu-mfa" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="3506" y="108"/>
+            <point key="canvasLocation" x="3507" y="108"/>
         </scene>
         <!--MainTabs-->
         <scene sceneID="UMn-Ji-9dT">
@@ -468,6 +548,7 @@
         <!--Search Navigation-->
         <scene sceneID="sJg-Ep-iPE">
             <objects>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="Gep-sP-XiR" userLabel="First Responder" sceneMemberID="firstResponder"/>
                 <navigationController title="Search Navigation" automaticallyAdjustsScrollViewInsets="NO" id="vTt-ai-PJe" sceneMemberID="viewController">
                     <toolbarItems/>
                     <navigationBar key="navigationBar" contentMode="scaleToFill" id="1YJ-Iu-2qc">
@@ -483,9 +564,15 @@
                         <segue destination="rdm-Qu-p4x" kind="relationship" relationship="rootViewController" id="fAq-zP-36M"/>
                     </connections>
                 </navigationController>
-                <placeholder placeholderIdentifier="IBFirstResponder" id="Gep-sP-XiR" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="2730" y="110"/>
+            <point key="canvasLocation" x="2730" y="108"/>
         </scene>
     </scenes>
+    <resources>
+        <image name="check" width="23" height="20"/>
+        <image name="cross" width="20" height="20"/>
+    </resources>
+    <inferredMetricsTieBreakers>
+        <segue reference="AyE-tV-3Ad"/>
+    </inferredMetricsTieBreakers>
 </document>

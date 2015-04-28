@@ -9,6 +9,7 @@
 #import "WishlistTableViewController.h"
 #import "WishlistTableViewCell.h"
 #import "APIConnectionManager.h"
+#import "BookSearchViewController.h"
 
 @interface WishlistTableViewController ()
 
@@ -203,14 +204,19 @@
 }
 */
 
-/*
+
 #pragma mark - Navigation
 
 // In a storyboard-based application, you will often want to do a little preparation before navigation
 - (void)prepareForSegue:(UIStoryboardSegue *)segue sender:(id)sender {
-    // Get the new view controller using [segue destinationViewController].
-    // Pass the selected object to the new view controller.
+    
+    if ([segue.identifier isEqual:@"wishlistSearchSegue"]) {
+        
+        BookSearchViewController *destination = (BookSearchViewController *)[[segue destinationViewController] viewControllers][0];
+        
+        destination.sender = self;
+    }
 }
-*/
+
 
 @end
