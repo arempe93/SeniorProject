@@ -15,7 +15,6 @@
 @property APIConnectionManager *api;
 @property NSMutableArray *rowData;
 
-- (NSArray *)leftButtons;
 - (NSArray *)rightButtons;
 
 - (void)removeOwnedBook:(id)bookID;

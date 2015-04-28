@@ -57,26 +57,16 @@
 
 #pragma mark - SWTableViewCell buttons
 
-- (NSArray *) leftButtons {
-    
-    NSMutableArray *leftUtilityButtons = [NSMutableArray new];
-    
-    [leftUtilityButtons sw_addUtilityButtonWithColor: /* #007aff */
-     [UIColor colorWithRed:0 green:0.478f blue:1 alpha:1.0] title:@"1"];
-    
-    [leftUtilityButtons sw_addUtilityButtonWithColor: /* #ffcc00 */
-     [UIColor colorWithRed:1 green:0.8f blue:0 alpha:1.0] title:@"2"];
-    
-    return leftUtilityButtons;
-}
-
 - (NSArray *) rightButtons {
     
     NSMutableArray *rightUtilityButtons = [NSMutableArray new];
     
     // delete button
-    [rightUtilityButtons sw_addUtilityButtonWithColor: /* #ff2d55 */
-     [UIColor colorWithRed:1 green:0.176f blue:0.333f alpha:1.0] title:@"X"];
+    
+    /* #ff2d55 */
+    [rightUtilityButtons sw_addUtilityButtonWithColor:
+     [UIColor colorWithRed:1 green:0.176f blue:0.333f alpha:1.0]
+                                                 icon:[UIImage imageNamed:@"cross.png"]];
     
     return rightUtilityButtons;
 }
@@ -101,17 +91,6 @@
 
 - (void)swipeableTableViewCell:(SWTableViewCell *)cell didTriggerLeftUtilityButtonWithIndex:(NSInteger)index {
     switch (index) {
-        case 0:
-            NSLog(@"check button was pressed");
-            break;
-        case 1:
-            NSLog(@"clock button was pressed");
-            break;
-        case 2:
-            NSLog(@"cross button was pressed");
-            break;
-        case 3:
-            NSLog(@"list button was pressed");
         default:
             break;
     }
@@ -155,7 +134,6 @@
     
     cell.delegate = self;
     
-    cell.leftUtilityButtons = [self leftButtons];
     cell.rightUtilityButtons = [self rightButtons];
     
     cell.cellInformation = [[self.rowData objectAtIndex:indexPath.row] objectForKey:@"book"];
