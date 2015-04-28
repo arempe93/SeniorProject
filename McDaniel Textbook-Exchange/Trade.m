@@ -105,4 +105,14 @@
     return self.comparison;
 }
 
+- (NSArray *)yourBooks {
+    
+    return [self.tradeData objectForKey:@"sender_books"];
+}
+
+- (NSArray *)theirBooks {
+    
+    return [self.tradeData objectForKey:@"receiver_books"];
+}
+
 @end

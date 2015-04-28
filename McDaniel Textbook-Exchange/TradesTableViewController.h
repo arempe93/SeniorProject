@@ -8,10 +8,14 @@
 
 #import <UIKit/UIKit.h>
 #import "APIConnectionManager.h"
+#import "SWTableViewCell.h"
 
-@interface TradesTableViewController : UITableViewController
+@interface TradesTableViewController : UITableViewController <SWTableViewCellDelegate>
 
 @property APIConnectionManager *api;
 @property NSMutableArray *rowData;
+
+- (NSArray *)leftButtons;
+- (NSArray *)rightButtons;
 
 @end
