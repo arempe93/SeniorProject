@@ -27,4 +27,6 @@
 
 - (void)doDelete:(NSString *)path;
 
+- (void)doPost:(NSString *)path caller:(id)caller callback:(SEL)callback params:(NSString *)params;
+
 @end

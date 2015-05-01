@@ -13,6 +13,8 @@
 
 @interface BookSearchViewController ()
 
+@property UIActivityIndicatorView *activityView;
+
 @end
 
 @implementation BookSearchViewController
@@ -39,6 +41,14 @@
 
 - (IBAction)bookSearch:(id)sender {
     
+    self.activityView = [[UIActivityIndicatorView alloc]
+                                             initWithActivityIndicatorStyle:UIActivityIndicatorViewStyleGray];
+    
+    self.activityView.center = self.view.center;
+    [self.activityView startAnimating];
+    
+    [self.view addSubview:self.activityView];
+    
     [self.view endEditing:YES];
 
     NSString * isbn = self.searchField.text;
@@ -47,6 +57,9 @@
 }
 
 - (void)foundBook:(NSDictionary *)data {
+    
+    // stop spinner
+    [self.activityView setHidden:YES];
     
     // store this books data
     
@@ -70,10 +83,15 @@
     
     if ([self.sender isKindOfClass:[WishlistTableViewController class]]) {
         
+        [self.api doPost:@"/users/1/wanted_books" caller:self callback:@selector(didAddBook) params:[NSString stringWithFormat:@"book=%@", [self.currentBook objectForKey:@"id"]]];
         
     }else {
         
+        [self.api doPost:@"/users/1/owned_books" caller:self callback:@selector(didAddBook) params:[NSString stringWithFormat:@"book=%@", [self.currentBook objectForKey:@"id"]]];
     }
+}
+
+- (void)didAddBook {
     
     UIAlertController *addAlert = [UIAlertController alertControllerWithTitle:@"Awesome!" message:@"The book was added to your list" preferredStyle:UIAlertControllerStyleAlert];
     
@@ -83,13 +101,13 @@
     [self presentViewController:addAlert animated:YES completion:nil];
 }
 
-- (void)didAddBook {
-    
-    
-}
-
 - (IBAction)clearBook:(id)sender {
     
+    self.currentBook = nil;
+    
+    self.searchField.text = @"";
+    
+    [self.detailView setHidden:YES];
 }
 
 - (IBAction)unwind:(id)sender {
