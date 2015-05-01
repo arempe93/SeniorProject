@@ -304,8 +304,8 @@
                                 <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" tableViewCell="1B5-JK-Ubp" id="Bo0-pR-lzc">
                                     <autoresizingMask key="autoresizingMask"/>
                                     <subviews>
-                                        <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" misplaced="YES" translatesAutoresizingMaskIntoConstraints="NO" id="WlP-5B-Tux">
-                                            <rect key="frame" x="8" y="14" width="100" height="100"/>
+                                        <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" translatesAutoresizingMaskIntoConstraints="NO" id="WlP-5B-Tux">
+                                            <rect key="frame" x="8" y="13" width="100" height="100"/>
                                             <constraints>
                                                 <constraint firstAttribute="height" constant="100" id="CZX-zX-OLV"/>
                                                 <constraint firstAttribute="width" constant="100" id="myY-3B-fvf"/>
@@ -436,16 +436,68 @@
         <scene sceneID="s41-eI-gZN">
             <objects>
                 <tableViewController title="Trade Search" id="iCR-XP-hnj" customClass="TradeSearchTableViewController" sceneMemberID="viewController">
-                    <tableView key="view" clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" dataMode="prototypes" style="plain" separatorStyle="default" rowHeight="44" sectionHeaderHeight="22" sectionFooterHeight="22" id="hC6-eA-8LX">
+                    <tableView key="view" clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" dataMode="prototypes" style="plain" separatorStyle="default" rowHeight="175" sectionHeaderHeight="22" sectionFooterHeight="22" id="hC6-eA-8LX">
                         <rect key="frame" x="0.0" y="0.0" width="600" height="600"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                        <searchBar key="tableHeaderView" contentMode="redraw" id="XpN-7G-jRm">
+                            <rect key="frame" x="0.0" y="0.0" width="600" height="44"/>
+                            <autoresizingMask key="autoresizingMask" widthSizable="YES" flexibleMaxY="YES"/>
+                            <textInputTraits key="textInputTraits"/>
+                        </searchBar>
                         <prototypes>
-                            <tableViewCell contentMode="scaleToFill" selectionStyle="default" indentationWidth="10" id="C6v-KU-as5">
+                            <tableViewCell contentMode="scaleToFill" selectionStyle="default" indentationWidth="10" reuseIdentifier="tradeSearchCell" rowHeight="175" id="C6v-KU-as5" customClass="TradeSearchTableViewCell">
                                 <autoresizingMask key="autoresizingMask"/>
                                 <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" tableViewCell="C6v-KU-as5" id="Xho-an-xfY">
                                     <autoresizingMask key="autoresizingMask"/>
+                                    <subviews>
+                                        <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" translatesAutoresizingMaskIntoConstraints="NO" id="idx-5h-AqA">
+                                            <rect key="frame" x="8" y="28" width="100" height="131"/>
+                                            <constraints>
+                                                <constraint firstAttribute="width" constant="100" id="vDI-yI-U0T"/>
+                                            </constraints>
+                                        </imageView>
+                                        <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" translatesAutoresizingMaskIntoConstraints="NO" id="4vS-wa-yW6">
+                                            <rect key="frame" x="492" y="28" width="100" height="138"/>
+                                            <constraints>
+                                                <constraint firstAttribute="width" constant="100" id="uCe-6I-D6T"/>
+                                            </constraints>
+                                        </imageView>
+                                        <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Username" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="4bI-Vf-ir9">
+                                            <rect key="frame" x="118" y="16" width="364" height="21"/>
+                                            <fontDescription key="fontDescription" name="HelveticaNeue-Bold" family="Helvetica Neue" pointSize="17"/>
+                                            <color key="textColor" cocoaTouchSystemColor="darkTextColor"/>
+                                            <nil key="highlightedColor"/>
+                                        </label>
+                                        <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" translatesAutoresizingMaskIntoConstraints="NO" id="ibA-8K-gcO">
+                                            <rect key="frame" x="288" y="75" width="24" height="24"/>
+                                            <color key="backgroundColor" red="0.30980393290000002" green="0.83921575550000005" blue="0.42352944609999998" alpha="1" colorSpace="deviceRGB"/>
+                                            <constraints>
+                                                <constraint firstAttribute="height" constant="24" id="3yx-r4-8H6"/>
+                                                <constraint firstAttribute="width" constant="24" id="q7e-tN-Erd"/>
+                                            </constraints>
+                                        </imageView>
+                                    </subviews>
+                                    <constraints>
+                                        <constraint firstItem="4vS-wa-yW6" firstAttribute="leading" secondItem="4bI-Vf-ir9" secondAttribute="trailing" constant="10" id="4aM-ym-ahY"/>
+                                        <constraint firstItem="idx-5h-AqA" firstAttribute="top" secondItem="Xho-an-xfY" secondAttribute="topMargin" constant="20" id="5PH-e6-HC0"/>
+                                        <constraint firstItem="4vS-wa-yW6" firstAttribute="trailing" secondItem="Xho-an-xfY" secondAttribute="trailingMargin" id="7P2-5T-r2V"/>
+                                        <constraint firstItem="4vS-wa-yW6" firstAttribute="top" secondItem="Xho-an-xfY" secondAttribute="topMargin" constant="20" id="7Ps-YR-thY"/>
+                                        <constraint firstAttribute="bottomMargin" secondItem="4vS-wa-yW6" secondAttribute="bottom" id="ILp-AQ-BZy"/>
+                                        <constraint firstAttribute="bottomMargin" secondItem="idx-5h-AqA" secondAttribute="bottom" constant="7" id="JO0-ft-mGX"/>
+                                        <constraint firstAttribute="centerY" secondItem="ibA-8K-gcO" secondAttribute="centerY" id="VbY-Bs-uiA"/>
+                                        <constraint firstItem="4bI-Vf-ir9" firstAttribute="top" secondItem="Xho-an-xfY" secondAttribute="topMargin" constant="8" id="YCz-MH-OdL"/>
+                                        <constraint firstItem="idx-5h-AqA" firstAttribute="leading" secondItem="Xho-an-xfY" secondAttribute="leadingMargin" id="bai-ab-BM5"/>
+                                        <constraint firstItem="4bI-Vf-ir9" firstAttribute="leading" secondItem="idx-5h-AqA" secondAttribute="trailing" constant="10" id="cGR-gd-ZpZ"/>
+                                        <constraint firstAttribute="centerX" secondItem="ibA-8K-gcO" secondAttribute="centerX" id="qH9-o3-FSY"/>
+                                    </constraints>
                                 </tableViewCellContentView>
+                                <connections>
+                                    <outlet property="exchangeImage" destination="ibA-8K-gcO" id="U29-UI-NFe"/>
+                                    <outlet property="theirBook" destination="4vS-wa-yW6" id="BS0-SF-XcZ"/>
+                                    <outlet property="userName" destination="4bI-Vf-ir9" id="5i2-mT-BhP"/>
+                                    <outlet property="yourBook" destination="idx-5h-AqA" id="9l6-k9-DLS"/>
+                                </connections>
                             </tableViewCell>
                         </prototypes>
                         <connections>
@@ -454,10 +506,13 @@
                         </connections>
                     </tableView>
                     <navigationItem key="navigationItem" title="Trade Search" id="km8-Bp-GfA"/>
+                    <connections>
+                        <outlet property="searchBar" destination="XpN-7G-jRm" id="fZp-mU-C9N"/>
+                    </connections>
                 </tableViewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="Ml7-XY-Fm6" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="2730" y="1432"/>
+            <point key="canvasLocation" x="2730" y="1427"/>
         </scene>
         <!--Profile-->
         <scene sceneID="v0g-S3-QPf">

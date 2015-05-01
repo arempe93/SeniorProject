@@ -9,11 +9,16 @@
 #import <UIKit/UIKit.h>
 #import "APIConnectionManager.h"
 
-@interface TradeSearchTableViewController : UITableViewController
+@interface TradeSearchTableViewController : UITableViewController <UISearchBarDelegate>
 
 @property APIConnectionManager *api;
 
+@property (weak, nonatomic) IBOutlet UISearchBar *searchBar;
+
 - (void)refreshTrades;
 - (void)didFindTrades:(NSArray *)data;
+
+- (void)searchBooks;
+- (void)didFindBook:(NSDictionary *)data;
 
 @end

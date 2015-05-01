@@ -7,8 +7,12 @@
 //
 
 #import "TradeSearchTableViewController.h"
+#import "TradeSearchTableViewCell.h"
 
 @interface TradeSearchTableViewController ()
+
+@property NSMutableArray *suggestionData;
+@property NSMutableArray *searchData;
 
 @end
 
@@ -21,6 +25,9 @@
     self.api = [APIConnectionManager sharedConnection];
     self.api.api_key = @"ya29.LAFWYdlZwK0pO3OsRd7oCs_ZwzOB2-XMZrdj1XGwviN54CSBSkJgdanLcWqHzGl4eI0BmZ9hrKPRmg";
     
+    // initialize search bar
+    self.searchBar.delegate = self;
+    
     // initialize refresh control
     
     self.refreshControl = [[UIRefreshControl alloc] init];
@@ -30,6 +37,11 @@
                             action:@selector(refreshTrades)
                   forControlEvents:UIControlEventValueChanged];
     
+    // initialize row data
+    
+    self.suggestionData = [[NSMutableArray alloc] init];
+    self.searchData = [[NSMutableArray alloc] init];
+    
     [self refreshTrades];
 }
 
@@ -37,6 +49,8 @@
     [super didReceiveMemoryWarning];
     // Dispose of any resources that can be recreated.
 }
+
+# pragma mark - Searching
 
 - (void)refreshTrades {
     
@@ -48,30 +62,73 @@
     
     [self.refreshControl endRefreshing];
     
-    NSLog(@"%@", data);
+    self.suggestionData = [NSMutableArray arrayWithArray:data];
+    
+    NSLog(@"%@", [self.suggestionData objectAtIndex:0]);
+    
+    [self.tableView reloadData];
+}
+
+- (void)searchBarSearchButtonClicked:(UISearchBar *)searchBar {
+    
+    [self.refreshControl beginRefreshing];
+}
+
+- (void)searchBooks {
+    
+    
+}
+
+- (void)didFindBook:(NSDictionary *)data {
+    
+    
 }
 
 #pragma mark - Table view data source
 
 - (NSInteger)numberOfSectionsInTableView:(UITableView *)tableView {
-    // Return the number of sections.
-    return 0;
+
+    return 2;
 }
 
 - (NSInteger)tableView:(UITableView *)tableView numberOfRowsInSection:(NSInteger)section {
-    // Return the number of rows in the section.
-    return 0;
+
+    if (section == 0) {
+        return [self.suggestionData count];
+    
+    }else {
+        
+        return [self.searchData count];
+    }
 }
 
-/*
-- (UITableViewCell *)tableView:(UITableView *)tableView cellForRowAtIndexPath:(NSIndexPath *)indexPath {
-    UITableViewCell *cell = [tableView dequeueReusableCellWithIdentifier:<#@"reuseIdentifier"#> forIndexPath:indexPath];
+- (NSString *)tableView:(UITableView *)tableView titleForHeaderInSection:(NSInteger)section {
     
-    // Configure the cell...
-    
-    return cell;
+    if (section == 0) {
+        return @"Suggestions";
+    }else {
+        return @"Search Results";
+    }
 }
-*/
+
+
+- (UITableViewCell *)tableView:(UITableView *)tableView cellForRowAtIndexPath:(NSIndexPath *)indexPath {
+    
+    if (indexPath.section == 0) {
+        
+        TradeSearchTableViewCell *cell = (TradeSearchTableViewCell *) [tableView dequeueReusableCellWithIdentifier:@"tradeSearchCell" forIndexPath:indexPath];
+        
+        cell.suggestion = [self.suggestionData objectAtIndex:indexPath.row];
+        [cell loadInformation];
+        
+        return cell;
+        
+    }else {
+     
+        return [tableView dequeueReusableCellWithIdentifier:@"tradeSearchCell" forIndexPath:indexPath];
+    }
+}
+
 
 /*
 // Override to support conditional editing of the table view.
