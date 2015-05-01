@@ -275,6 +275,9 @@
                         <rect key="frame" x="0.0" y="0.0" width="320" height="49"/>
                         <autoresizingMask key="autoresizingMask"/>
                         <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="calibratedWhite"/>
+                        <color key="tintColor" red="0.96862745100000003" green="0.96862745100000003" blue="0.96862745100000003" alpha="1" colorSpace="calibratedRGB"/>
+                        <color key="barTintColor" red="0.30980393290000002" green="0.83921575550000005" blue="0.42352944609999998" alpha="1" colorSpace="deviceRGB"/>
+                        <color key="selectedImageTintColor" red="0.96862745100000003" green="0.96862745100000003" blue="0.96862745100000003" alpha="1" colorSpace="calibratedRGB"/>
                     </tabBar>
                     <connections>
                         <segue destination="ZvS-a6-eVt" kind="relationship" relationship="viewControllers" id="FJK-wn-yTZ"/>
@@ -483,7 +486,7 @@
         <scene sceneID="TBP-Ag-iYe">
             <objects>
                 <navigationController automaticallyAdjustsScrollViewInsets="NO" id="Kiy-3V-1ES" userLabel="Wishlist Navigation" sceneMemberID="viewController">
-                    <tabBarItem key="tabBarItem" title="Wishlist" id="Aeh-Rt-fSw"/>
+                    <tabBarItem key="tabBarItem" title="Wishlist" image="check" id="Aeh-Rt-fSw"/>
                     <toolbarItems/>
                     <navigationBar key="navigationBar" contentMode="scaleToFill" id="lZH-XL-NiD">
                         <rect key="frame" x="0.0" y="0.0" width="320" height="44"/>
@@ -548,7 +551,6 @@
         <!--Search Navigation-->
         <scene sceneID="sJg-Ep-iPE">
             <objects>
-                <placeholder placeholderIdentifier="IBFirstResponder" id="Gep-sP-XiR" userLabel="First Responder" sceneMemberID="firstResponder"/>
                 <navigationController title="Search Navigation" automaticallyAdjustsScrollViewInsets="NO" id="vTt-ai-PJe" sceneMemberID="viewController">
                     <toolbarItems/>
                     <navigationBar key="navigationBar" contentMode="scaleToFill" id="1YJ-Iu-2qc">
@@ -564,6 +566,7 @@
                         <segue destination="rdm-Qu-p4x" kind="relationship" relationship="rootViewController" id="fAq-zP-36M"/>
                     </connections>
                 </navigationController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="Gep-sP-XiR" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
             <point key="canvasLocation" x="2730" y="108"/>
         </scene>

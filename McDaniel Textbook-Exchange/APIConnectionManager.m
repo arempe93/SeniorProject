@@ -50,7 +50,7 @@
     [self doQueryWithParams:path caller:caller callback:callback params:@"foo=bar"];
 }
 
-- (void)doQueryWithParams:(NSString*)path caller:(id)caller callback:(SEL)callback params:(NSString*)params {
+- (void)doQueryWithParams:(NSString*)path caller:(id)caller callback:(SEL)callback params:(NSString *)params {
     
     // set callback
     self.caller = caller;
@@ -81,6 +81,25 @@
     // create the request
     NSMutableURLRequest *request = [NSMutableURLRequest requestWithURL:self.endpoint.URL];
     [request setHTTPMethod:@"DELETE"];
+    self.connection = [[NSURLConnection alloc] initWithRequest:request delegate:self startImmediately:YES];
+}
+
+- (void)doPost:(NSString *)path caller:(id)caller callback:(SEL)callback params:(NSString *)params {
+    
+    // set callback
+    self.caller = caller;
+    self.callback = callback;
+    
+    // create some storage for the result
+    self.data = [NSMutableData dataWithCapacity:0];
+    
+    // modify url
+    self.endpoint.path = path;
+    self.endpoint.query = [params stringByAppendingString:[NSString stringWithFormat:@"&key=%@", self.api_key]];
+    
+    // create the request
+    NSMutableURLRequest *request = [NSMutableURLRequest requestWithURL:self.endpoint.URL];
+    [request setHTTPMethod:@"POST"];
     self.connection = [[NSURLConnection alloc] initWithRequest:request delegate:self startImmediately:YES];
 }
 
