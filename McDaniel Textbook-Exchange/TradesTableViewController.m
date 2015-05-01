@@ -232,9 +232,11 @@
     // Get the new view controller using [segue destinationViewController].
     // Pass the selected object to the new view controller.
     
-    TradeDetailViewController *destination = (TradeDetailViewController *) [segue destinationViewController];
-
-    destination.trade = (Trade *) sender;
+    if ([sender isKindOfClass:[Trade class]]) {
+    
+        TradeDetailViewController *destination = (TradeDetailViewController *) [segue destinationViewController];
+        destination.trade = (Trade *) sender;
+    }
 }
 
 

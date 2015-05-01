@@ -15,6 +15,7 @@
 		F54E6BBA1AD314A4002F3C86 /* BookTableViewCell.m in Sources */ = {isa = PBXBuildFile; fileRef = F54E6BB91AD314A4002F3C86 /* BookTableViewCell.m */; };
 		F568D5561AE6C9070038F967 /* TradeDetailViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = F568D5551AE6C9070038F967 /* TradeDetailViewController.m */; };
 		F5951F081AC1D85C00A7CF1C /* WishlistTableViewCell.m in Sources */ = {isa = PBXBuildFile; fileRef = F5951F071AC1D85C00A7CF1C /* WishlistTableViewCell.m */; };
+		F5B9A1C91AF40D6A0059AEC3 /* TradeSearchTableViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = F5B9A1C81AF40D6A0059AEC3 /* TradeSearchTableViewController.m */; };
 		F5C9872F1ACDD3250055B9AF /* NSMutableArray+SWUtilityButtons.m in Sources */ = {isa = PBXBuildFile; fileRef = F5C987241ACDD3250055B9AF /* NSMutableArray+SWUtilityButtons.m */; };
 		F5C987301ACDD3250055B9AF /* SWCellScrollView.m in Sources */ = {isa = PBXBuildFile; fileRef = F5C987261ACDD3250055B9AF /* SWCellScrollView.m */; };
 		F5C987311ACDD3250055B9AF /* SWLongPressGestureRecognizer.m in Sources */ = {isa = PBXBuildFile; fileRef = F5C987281ACDD3250055B9AF /* SWLongPressGestureRecognizer.m */; };
@@ -60,6 +61,8 @@
 		F568D5551AE6C9070038F967 /* TradeDetailViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = TradeDetailViewController.m; sourceTree = "<group>"; };
 		F5951F061AC1D85C00A7CF1C /* WishlistTableViewCell.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = WishlistTableViewCell.h; sourceTree = "<group>"; };
 		F5951F071AC1D85C00A7CF1C /* WishlistTableViewCell.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = WishlistTableViewCell.m; sourceTree = "<group>"; };
+		F5B9A1C71AF40D6A0059AEC3 /* TradeSearchTableViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = TradeSearchTableViewController.h; sourceTree = "<group>"; };
+		F5B9A1C81AF40D6A0059AEC3 /* TradeSearchTableViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = TradeSearchTableViewController.m; sourceTree = "<group>"; };
 		F5C987231ACDD3250055B9AF /* NSMutableArray+SWUtilityButtons.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "NSMutableArray+SWUtilityButtons.h"; sourceTree = "<group>"; };
 		F5C987241ACDD3250055B9AF /* NSMutableArray+SWUtilityButtons.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "NSMutableArray+SWUtilityButtons.m"; sourceTree = "<group>"; };
 		F5C987251ACDD3250055B9AF /* SWCellScrollView.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = SWCellScrollView.h; sourceTree = "<group>"; };
@@ -240,6 +243,8 @@
 				F568D5551AE6C9070038F967 /* TradeDetailViewController.m */,
 				F52FE4231AF0012300BDAED7 /* BookSearchViewController.h */,
 				F52FE4241AF0012300BDAED7 /* BookSearchViewController.m */,
+				F5B9A1C71AF40D6A0059AEC3 /* TradeSearchTableViewController.h */,
+				F5B9A1C81AF40D6A0059AEC3 /* TradeSearchTableViewController.m */,
 			);
 			name = controllers;
 			sourceTree = "<group>";
@@ -364,6 +369,7 @@
 				F5E84B121AA637F400DAE687 /* WishlistTableViewController.m in Sources */,
 				F5E84AE91AA62FA200DAE687 /* main.m in Sources */,
 				F5C987311ACDD3250055B9AF /* SWLongPressGestureRecognizer.m in Sources */,
+				F5B9A1C91AF40D6A0059AEC3 /* TradeSearchTableViewController.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};

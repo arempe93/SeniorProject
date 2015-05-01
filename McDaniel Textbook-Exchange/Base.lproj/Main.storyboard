@@ -364,7 +364,14 @@
                             <outlet property="delegate" destination="iQX-Os-We9" id="XrZ-7m-Zjz"/>
                         </connections>
                     </tableView>
-                    <navigationItem key="navigationItem" title="Trades" id="w85-IC-5Qm"/>
+                    <navigationItem key="navigationItem" title="Trades" id="w85-IC-5Qm">
+                        <barButtonItem key="rightBarButtonItem" systemItem="search" id="4Eo-O2-bhe">
+                            <color key="tintColor" red="0.96862745100000003" green="0.96862745100000003" blue="0.96862745100000003" alpha="1" colorSpace="calibratedRGB"/>
+                            <connections>
+                                <segue destination="iCR-XP-hnj" kind="show" id="P6I-jT-JDS"/>
+                            </connections>
+                        </barButtonItem>
+                    </navigationItem>
                 </tableViewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="1Zx-O8-fVm" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
@@ -424,6 +431,33 @@
                 <placeholder placeholderIdentifier="IBFirstResponder" id="l33-15-T0h" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
             <point key="canvasLocation" x="2730" y="771"/>
+        </scene>
+        <!--Trade Search-->
+        <scene sceneID="s41-eI-gZN">
+            <objects>
+                <tableViewController title="Trade Search" id="iCR-XP-hnj" customClass="TradeSearchTableViewController" sceneMemberID="viewController">
+                    <tableView key="view" clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" dataMode="prototypes" style="plain" separatorStyle="default" rowHeight="44" sectionHeaderHeight="22" sectionFooterHeight="22" id="hC6-eA-8LX">
+                        <rect key="frame" x="0.0" y="0.0" width="600" height="600"/>
+                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                        <prototypes>
+                            <tableViewCell contentMode="scaleToFill" selectionStyle="default" indentationWidth="10" id="C6v-KU-as5">
+                                <autoresizingMask key="autoresizingMask"/>
+                                <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" tableViewCell="C6v-KU-as5" id="Xho-an-xfY">
+                                    <autoresizingMask key="autoresizingMask"/>
+                                </tableViewCellContentView>
+                            </tableViewCell>
+                        </prototypes>
+                        <connections>
+                            <outlet property="dataSource" destination="iCR-XP-hnj" id="3un-VD-edi"/>
+                            <outlet property="delegate" destination="iCR-XP-hnj" id="eru-dj-8eP"/>
+                        </connections>
+                    </tableView>
+                    <navigationItem key="navigationItem" title="Trade Search" id="km8-Bp-GfA"/>
+                </tableViewController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="Ml7-XY-Fm6" userLabel="First Responder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="2730" y="1432"/>
         </scene>
         <!--Profile-->
         <scene sceneID="v0g-S3-QPf">
