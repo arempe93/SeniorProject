@@ -23,7 +23,6 @@
     
     // initialize api
     self.api = [APIConnectionManager sharedConnection];
-    self.api.api_key = @"ya29.LAFWYdlZwK0pO3OsRd7oCs_ZwzOB2-XMZrdj1XGwviN54CSBSkJgdanLcWqHzGl4eI0BmZ9hrKPRmg";
     
     // initialize search bar
     self.searchBar.delegate = self;
@@ -55,7 +54,7 @@
 - (void)refreshTrades {
     
     // get info
-    [self.api doQuery:@"/users/1/trades/suggest" caller:self callback:@selector(didFindTrades:)];
+    [self.api doQuery:@"/users/:user/trades/suggest" caller:self callback:@selector(didFindTrades:)];
 }
 
 - (void)didFindTrades:(NSArray *)data {

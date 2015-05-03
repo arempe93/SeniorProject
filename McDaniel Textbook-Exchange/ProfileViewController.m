@@ -22,7 +22,6 @@
     
     APIConnectionManager *connection = [APIConnectionManager sharedConnection];
     
-    connection.api_key = @"ya29.LAFWYdlZwK0pO3OsRd7oCs_ZwzOB2-XMZrdj1XGwviN54CSBSkJgdanLcWqHzGl4eI0BmZ9hrKPRmg";
     [connection doQuery:@"/books/2/owners" caller:self callback:@selector(setLabelValue:)];
 }
 

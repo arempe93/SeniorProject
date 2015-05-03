@@ -1,5 +1,5 @@
 <?xml version="1.0" encoding="UTF-8" standalone="no"?>
-<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="6254" systemVersion="13F1066" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" initialViewController="Xew-Jr-ATv">
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="6254" systemVersion="13F1066" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" initialViewController="uNe-Zl-1bJ">
     <dependencies>
         <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="6247"/>
         <capability name="Constraints to layout margins" minToolsVersion="6.0"/>
@@ -265,6 +265,78 @@
                 <placeholder placeholderIdentifier="IBFirstResponder" id="ij9-Vu-mfa" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
             <point key="canvasLocation" x="3507" y="108"/>
+        </scene>
+        <!--Navigation Controller-->
+        <scene sceneID="84J-fT-kOb">
+            <objects>
+                <navigationController id="uNe-Zl-1bJ" sceneMemberID="viewController">
+                    <navigationBar key="navigationBar" contentMode="scaleToFill" id="LdQ-7U-ZYC">
+                        <rect key="frame" x="0.0" y="0.0" width="320" height="44"/>
+                        <autoresizingMask key="autoresizingMask"/>
+                        <color key="barTintColor" red="0.30980393290000002" green="0.83921575550000005" blue="0.42352944609999998" alpha="1" colorSpace="deviceRGB"/>
+                        <textAttributes key="titleTextAttributes">
+                            <color key="textColor" red="0.96862745100000003" green="0.96862745100000003" blue="0.96862745100000003" alpha="1" colorSpace="calibratedRGB"/>
+                        </textAttributes>
+                    </navigationBar>
+                    <connections>
+                        <segue destination="4oa-UP-AUQ" kind="relationship" relationship="rootViewController" id="Zfb-E4-tyo"/>
+                    </connections>
+                </navigationController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="isp-Q4-qG2" userLabel="First Responder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="-1190" y="405"/>
+        </scene>
+        <!--Login-->
+        <scene sceneID="Uwe-Vl-Q4w">
+            <objects>
+                <viewController id="4oa-UP-AUQ" customClass="LoginViewController" sceneMemberID="viewController">
+                    <layoutGuides>
+                        <viewControllerLayoutGuide type="top" id="K80-Mu-bre"/>
+                        <viewControllerLayoutGuide type="bottom" id="K7J-PF-sHf"/>
+                    </layoutGuides>
+                    <view key="view" contentMode="scaleToFill" id="GEU-hv-Q7U">
+                        <rect key="frame" x="0.0" y="0.0" width="600" height="600"/>
+                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <subviews>
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Enter your McDaniel username" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="fwr-7P-3pY">
+                                <rect key="frame" x="36" y="256" width="498" height="21"/>
+                                <fontDescription key="fontDescription" name="HelveticaNeue-Light" family="Helvetica Neue" pointSize="17"/>
+                                <color key="textColor" cocoaTouchSystemColor="darkTextColor"/>
+                                <nil key="highlightedColor"/>
+                            </label>
+                            <textField opaque="NO" clipsSubviews="YES" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="roundedRect" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="IY4-Wk-a4l">
+                                <rect key="frame" x="36" y="285" width="528" height="30"/>
+                                <fontDescription key="fontDescription" name="HelveticaNeue" family="Helvetica Neue" pointSize="14"/>
+                                <textInputTraits key="textInputTraits"/>
+                            </textField>
+                        </subviews>
+                        <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                        <constraints>
+                            <constraint firstAttribute="centerX" secondItem="IY4-Wk-a4l" secondAttribute="centerX" id="20Q-0J-Mhf"/>
+                            <constraint firstItem="fwr-7P-3pY" firstAttribute="leading" secondItem="GEU-hv-Q7U" secondAttribute="leadingMargin" constant="20" id="7iY-rJ-pnt"/>
+                            <constraint firstAttribute="trailingMargin" secondItem="IY4-Wk-a4l" secondAttribute="trailing" constant="20" id="Nd0-0x-op4"/>
+                            <constraint firstItem="IY4-Wk-a4l" firstAttribute="top" secondItem="fwr-7P-3pY" secondAttribute="bottom" constant="8" id="PAW-mh-7jU"/>
+                            <constraint firstAttribute="centerY" secondItem="IY4-Wk-a4l" secondAttribute="centerY" id="jxb-ab-wSC"/>
+                            <constraint firstAttribute="trailingMargin" secondItem="fwr-7P-3pY" secondAttribute="trailing" constant="50" id="rJM-Ju-MST"/>
+                            <constraint firstItem="IY4-Wk-a4l" firstAttribute="leading" secondItem="GEU-hv-Q7U" secondAttribute="leadingMargin" constant="20" id="vTV-P7-ljq"/>
+                        </constraints>
+                    </view>
+                    <navigationItem key="navigationItem" title="Login" id="2fc-Tj-M73">
+                        <barButtonItem key="rightBarButtonItem" systemItem="action" id="SNk-NK-fKg">
+                            <color key="tintColor" red="0.96862745100000003" green="0.96862745100000003" blue="0.96862745100000003" alpha="1" colorSpace="calibratedRGB"/>
+                            <connections>
+                                <action selector="loginButtonPressed:" destination="4oa-UP-AUQ" id="xd2-Mu-z5t"/>
+                            </connections>
+                        </barButtonItem>
+                    </navigationItem>
+                    <connections>
+                        <outlet property="loginField" destination="IY4-Wk-a4l" id="Us3-gb-Fhw"/>
+                        <segue destination="Xew-Jr-ATv" kind="presentation" identifier="loginSuccessSegue" id="gNG-Vs-Lbt"/>
+                    </connections>
+                </viewController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="Pu1-1L-05T" userLabel="First Responder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="-424" y="405"/>
         </scene>
         <!--MainTabs-->
         <scene sceneID="UMn-Ji-9dT">

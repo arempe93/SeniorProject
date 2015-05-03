@@ -12,6 +12,7 @@
 		F52D8DAF1AD6F5BE002989D9 /* Trade.m in Sources */ = {isa = PBXBuildFile; fileRef = F52D8DAE1AD6F5BE002989D9 /* Trade.m */; };
 		F52FE4251AF0012300BDAED7 /* BookSearchViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = F52FE4241AF0012300BDAED7 /* BookSearchViewController.m */; };
 		F53EC9C01AE0306900778F55 /* TradeTableViewCell.m in Sources */ = {isa = PBXBuildFile; fileRef = F53EC9BF1AE0306900778F55 /* TradeTableViewCell.m */; };
+		F54451C51AF6B30800B1EE6C /* LoginViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = F54451C41AF6B30800B1EE6C /* LoginViewController.m */; };
 		F54E6BBA1AD314A4002F3C86 /* BookTableViewCell.m in Sources */ = {isa = PBXBuildFile; fileRef = F54E6BB91AD314A4002F3C86 /* BookTableViewCell.m */; };
 		F568D5561AE6C9070038F967 /* TradeDetailViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = F568D5551AE6C9070038F967 /* TradeDetailViewController.m */; };
 		F5951F081AC1D85C00A7CF1C /* WishlistTableViewCell.m in Sources */ = {isa = PBXBuildFile; fileRef = F5951F071AC1D85C00A7CF1C /* WishlistTableViewCell.m */; };
@@ -56,6 +57,8 @@
 		F52FE4241AF0012300BDAED7 /* BookSearchViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = BookSearchViewController.m; sourceTree = "<group>"; };
 		F53EC9BE1AE0306900778F55 /* TradeTableViewCell.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = TradeTableViewCell.h; sourceTree = "<group>"; };
 		F53EC9BF1AE0306900778F55 /* TradeTableViewCell.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = TradeTableViewCell.m; sourceTree = "<group>"; };
+		F54451C31AF6B30800B1EE6C /* LoginViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = LoginViewController.h; sourceTree = "<group>"; };
+		F54451C41AF6B30800B1EE6C /* LoginViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = LoginViewController.m; sourceTree = "<group>"; };
 		F54E6BB81AD314A4002F3C86 /* BookTableViewCell.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = BookTableViewCell.h; sourceTree = "<group>"; };
 		F54E6BB91AD314A4002F3C86 /* BookTableViewCell.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = BookTableViewCell.m; sourceTree = "<group>"; };
 		F568D5541AE6C9070038F967 /* TradeDetailViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = TradeDetailViewController.h; sourceTree = "<group>"; };
@@ -250,6 +253,8 @@
 				F52FE4241AF0012300BDAED7 /* BookSearchViewController.m */,
 				F5B9A1C71AF40D6A0059AEC3 /* TradeSearchTableViewController.h */,
 				F5B9A1C81AF40D6A0059AEC3 /* TradeSearchTableViewController.m */,
+				F54451C31AF6B30800B1EE6C /* LoginViewController.h */,
+				F54451C41AF6B30800B1EE6C /* LoginViewController.m */,
 			);
 			name = controllers;
 			sourceTree = "<group>";
@@ -355,6 +360,7 @@
 			buildActionMask = 2147483647;
 			files = (
 				F5C987301ACDD3250055B9AF /* SWCellScrollView.m in Sources */,
+				F54451C51AF6B30800B1EE6C /* LoginViewController.m in Sources */,
 				F5C987321ACDD3250055B9AF /* SWTableViewCell.m in Sources */,
 				F5E84B151AA6392400DAE687 /* TradesTableViewController.m in Sources */,
 				F526C4BD1AAF5E60004699EA /* APIConnectionManager.m in Sources */,

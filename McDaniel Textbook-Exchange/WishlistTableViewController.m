@@ -27,7 +27,6 @@
     // initialize api
     
     self.api = [APIConnectionManager sharedConnection];
-    self.api.api_key = @"ya29.LAFWYdlZwK0pO3OsRd7oCs_ZwzOB2-XMZrdj1XGwviN54CSBSkJgdanLcWqHzGl4eI0BmZ9hrKPRmg";
     
     // initialize refresh control
     
@@ -52,7 +51,7 @@
     
     [self.refreshControl endRefreshing];
     
-    [self.api doQuery:@"/users/1/wanted_books" caller:self callback:@selector(didRowDataLoad:)];
+    [self.api doQuery:@"/users/:user/wanted_books" caller:self callback:@selector(didRowDataLoad:)];
 }
 
 #pragma mark - SWTableViewCell buttons

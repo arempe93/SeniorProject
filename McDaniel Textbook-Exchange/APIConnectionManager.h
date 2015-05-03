@@ -17,6 +17,7 @@
 @property id caller;
 @property SEL callback;
 
+@property NSString *userID;
 @property NSString *api_key;
 
 + (id)sharedConnection;

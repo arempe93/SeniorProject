@@ -25,7 +25,6 @@
     // initialize api
     
     self.api = [APIConnectionManager sharedConnection];
-    self.api.api_key = @"ya29.LAFWYdlZwK0pO3OsRd7oCs_ZwzOB2-XMZrdj1XGwviN54CSBSkJgdanLcWqHzGl4eI0BmZ9hrKPRmg";
     
     // hide detail view for now
     
@@ -83,11 +82,11 @@
     
     if ([self.sender isKindOfClass:[WishlistTableViewController class]]) {
         
-        [self.api doPost:@"/users/1/wanted_books" caller:self callback:@selector(didAddBook) params:[NSString stringWithFormat:@"book=%@", [self.currentBook objectForKey:@"id"]]];
+        [self.api doPost:@"/users/:user/wanted_books" caller:self callback:@selector(didAddBook) params:[NSString stringWithFormat:@"book=%@", [self.currentBook objectForKey:@"id"]]];
         
     }else {
         
-        [self.api doPost:@"/users/1/owned_books" caller:self callback:@selector(didAddBook) params:[NSString stringWithFormat:@"book=%@", [self.currentBook objectForKey:@"id"]]];
+        [self.api doPost:@"/users/:user/owned_books" caller:self callback:@selector(didAddBook) params:[NSString stringWithFormat:@"book=%@", [self.currentBook objectForKey:@"id"]]];
     }
 }
 
