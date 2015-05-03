@@ -10,6 +10,10 @@
 
 @interface ProfileViewController : UIViewController
 
+@property (weak, nonatomic) IBOutlet UIImageView *userImage;
+@property (weak, nonatomic) IBOutlet UILabel *userName;
+@property (weak, nonatomic) IBOutlet UILabel *userEmail;
+
 -(void)setLabelValue:(NSArray *)json;
 
 @end

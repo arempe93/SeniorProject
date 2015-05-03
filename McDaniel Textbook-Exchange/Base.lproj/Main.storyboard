@@ -598,22 +598,58 @@
                         <rect key="frame" x="0.0" y="0.0" width="600" height="600"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
-                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Label" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="IOY-Kd-Bf3">
-                                <rect key="frame" x="279" y="290" width="42" height="21"/>
-                                <fontDescription key="fontDescription" type="system" pointSize="17"/>
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Name" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="n2z-zd-HX1">
+                                <rect key="frame" x="174" y="117" width="410" height="21"/>
+                                <fontDescription key="fontDescription" name="HelveticaNeue-Medium" family="Helvetica Neue" pointSize="17"/>
+                                <color key="textColor" cocoaTouchSystemColor="darkTextColor"/>
+                                <nil key="highlightedColor"/>
+                            </label>
+                            <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" translatesAutoresizingMaskIntoConstraints="NO" id="9Oe-7u-apZ">
+                                <rect key="frame" x="16" y="77" width="150" height="150"/>
+                                <constraints>
+                                    <constraint firstAttribute="height" constant="150" id="5Xv-Jb-gb4"/>
+                                    <constraint firstAttribute="width" constant="150" id="89A-Fa-ADa"/>
+                                </constraints>
+                            </imageView>
+                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="AhY-2x-FBO">
+                                <rect key="frame" x="46" y="285" width="508" height="30"/>
+                                <fontDescription key="fontDescription" name="HelveticaNeue-LightItalic" family="Helvetica Neue" pointSize="15"/>
+                                <state key="normal" title="Log out">
+                                    <color key="titleColor" red="1" green="0.1744768058" blue="0.34905497200000002" alpha="1" colorSpace="calibratedRGB"/>
+                                    <color key="titleShadowColor" white="0.5" alpha="1" colorSpace="calibratedWhite"/>
+                                </state>
+                                <connections>
+                                    <action selector="logoutButtonPressed:" destination="4Qr-Dz-rFM" eventType="touchUpInside" id="Rhd-1F-T9L"/>
+                                </connections>
+                            </button>
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Email" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="7nn-FX-VkZ">
+                                <rect key="frame" x="174" y="150" width="410" height="21"/>
+                                <fontDescription key="fontDescription" name="HelveticaNeue-Light" family="Helvetica Neue" pointSize="17"/>
                                 <color key="textColor" cocoaTouchSystemColor="darkTextColor"/>
                                 <nil key="highlightedColor"/>
                             </label>
                         </subviews>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                         <constraints>
-                            <constraint firstAttribute="centerX" secondItem="IOY-Kd-Bf3" secondAttribute="centerX" id="8t3-Wh-d7e"/>
-                            <constraint firstAttribute="centerY" secondItem="IOY-Kd-Bf3" secondAttribute="centerY" id="SkC-lB-7Q0"/>
+                            <constraint firstAttribute="trailingMargin" secondItem="AhY-2x-FBO" secondAttribute="trailing" constant="30" id="0v7-1P-rYq"/>
+                            <constraint firstAttribute="centerX" secondItem="AhY-2x-FBO" secondAttribute="centerX" id="3gN-kO-THw"/>
+                            <constraint firstItem="n2z-zd-HX1" firstAttribute="leading" secondItem="9Oe-7u-apZ" secondAttribute="trailing" constant="8" id="6Cn-Po-mgQ"/>
+                            <constraint firstItem="9Oe-7u-apZ" firstAttribute="leading" secondItem="ZoL-lE-K28" secondAttribute="leadingMargin" id="9Qi-E5-Mrx"/>
+                            <constraint firstItem="7nn-FX-VkZ" firstAttribute="leading" secondItem="9Oe-7u-apZ" secondAttribute="trailing" constant="8" id="DS5-hg-Zva"/>
+                            <constraint firstAttribute="trailingMargin" secondItem="n2z-zd-HX1" secondAttribute="trailing" id="Hr6-WA-eCl"/>
+                            <constraint firstItem="7nn-FX-VkZ" firstAttribute="top" secondItem="n2z-zd-HX1" secondAttribute="bottom" constant="12" id="I81-0c-8Q4"/>
+                            <constraint firstItem="n2z-zd-HX1" firstAttribute="top" secondItem="810-6F-uyb" secondAttribute="bottom" constant="53" id="NI6-7e-tH7"/>
+                            <constraint firstAttribute="centerY" secondItem="AhY-2x-FBO" secondAttribute="centerY" id="Zh2-PC-dYO"/>
+                            <constraint firstItem="AhY-2x-FBO" firstAttribute="leading" secondItem="ZoL-lE-K28" secondAttribute="leadingMargin" constant="30" id="ngo-XN-za4"/>
+                            <constraint firstItem="9Oe-7u-apZ" firstAttribute="top" secondItem="810-6F-uyb" secondAttribute="bottom" constant="13" id="p6N-dp-gAd"/>
+                            <constraint firstAttribute="trailingMargin" secondItem="7nn-FX-VkZ" secondAttribute="trailing" id="zYp-ad-fuq"/>
                         </constraints>
                     </view>
                     <navigationItem key="navigationItem" title="Profile" id="rN8-P7-l4c"/>
                     <connections>
-                        <outlet property="mainLabel" destination="IOY-Kd-Bf3" id="ePn-ul-fDl"/>
+                        <outlet property="userEmail" destination="7nn-FX-VkZ" id="Otg-Rd-2wu"/>
+                        <outlet property="userImage" destination="9Oe-7u-apZ" id="Bmb-wa-ne9"/>
+                        <outlet property="userName" destination="n2z-zd-HX1" id="aZz-eo-9i5"/>
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="WFY-OZ-71b" userLabel="First Responder" sceneMemberID="firstResponder"/>
@@ -699,6 +735,10 @@
                     <navigationBar key="navigationBar" contentMode="scaleToFill" id="xcK-8D-jAt">
                         <rect key="frame" x="0.0" y="0.0" width="320" height="44"/>
                         <autoresizingMask key="autoresizingMask"/>
+                        <color key="barTintColor" red="0.30980393290000002" green="0.83921575550000005" blue="0.42352944609999998" alpha="1" colorSpace="deviceRGB"/>
+                        <textAttributes key="titleTextAttributes">
+                            <color key="textColor" red="0.96862745100000003" green="0.96862745100000003" blue="0.96862745100000003" alpha="1" colorSpace="calibratedRGB"/>
+                        </textAttributes>
                     </navigationBar>
                     <nil name="viewControllers"/>
                     <connections>

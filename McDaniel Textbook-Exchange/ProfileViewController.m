@@ -18,24 +18,42 @@
 - (void)viewDidLoad {
     [super viewDidLoad];
     
-    self.mainLabel.hidden = YES;
+    self.userName.hidden = YES;
+    self.userEmail.hidden = YES;
     
     APIConnectionManager *connection = [APIConnectionManager sharedConnection];
     
-    [connection doQuery:@"/books/2/owners" caller:self callback:@selector(setLabelValue:)];
+    [connection doQuery:@"/users/:user" caller:self callback:@selector(setLabelValue:)];
 }
 
-- (void)setLabelValue:(NSArray *)json {
+- (void)setLabelValue:(NSDictionary *)data {
     
-    self.mainLabel.hidden = NO;
+    self.userName.hidden = NO;
+    self.userEmail.hidden = NO;
     
-    NSLog(@"Data received:\n%@", [[json objectAtIndex:0] objectForKey:@"name"]);
-    self.mainLabel.text = [[json objectAtIndex:0] objectForKey:@"name"];
+    self.userName.text = [data objectForKey:@"name"];
+    self.userEmail.text = [data objectForKey:@"email"];
+    
+    UIImage *avatar = [UIImage imageWithData:[NSData dataWithContentsOfURL:[NSURL URLWithString:[data objectForKey:@"image"]]]];
+    self.userImage.image = avatar;
 }
 
 - (void)didReceiveMemoryWarning {
     [super didReceiveMemoryWarning];
     // Dispose of any resources that can be recreated.
+}
+
+- (IBAction)logoutButtonPressed:(id)sender {
+    
+    // clear user defaults
+    NSUserDefaults *defaults = [NSUserDefaults standardUserDefaults];
+    
+    [defaults removeObjectForKey:@"mcdanielUsername"];
+    [defaults removeObjectForKey:@"mcdanielAPIKey"];
+    [defaults removeObjectForKey:@"mcdanielUserID"];
+    
+    // return to login page
+    [self presentViewController:[self.storyboard instantiateInitialViewController] animated:YES completion:nil];
 }
 
 /*
