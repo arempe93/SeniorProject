@@ -32,7 +32,7 @@
     
     if ([self.defaults objectForKey:@"mcdanielUsername"] != nil) {
         
-        [self loginWithUsername:[self.defaults objectForKey:@"mcdanielUsername"] apiKey:[self.defaults objectForKey:@"mcdanielAPIKey"] userID:[self.defaults objectForKey:@"mcdanielUserID"]];
+        [self loginWithUsername:[self.defaults objectForKey:@"mcdanielUsername"] apiKey:[self.defaults objectForKey:@"mcdanielAPIKey"] userID:[NSString stringWithFormat:@"%@", [self.defaults objectForKey:@"mcdanielUserID"]]];
     }
 }
 
@@ -63,20 +63,18 @@
     
     NSString * username = self.loginField.text;
     
-    // [self.api doQuery:[NSString stringWithFormat:@"/users/login/%@", username] caller:self callback:@selector(didLogin:)];
-    
-    NSDictionary *data = @{ @"id":@"1", @"username":@"ajr009", @"api_key":@"ya29.LAFWYdlZwK0pO3OsRd7oCs_ZwzOB2-XMZrdj1XGwviN54CSBSkJgdanLcWqHzGl4eI0BmZ9hrKPRmg" };
-    
-    [self didLogin:data];
+    [self.api doQuery:[NSString stringWithFormat:@"/users/login/%@", username] caller:self callback:@selector(didLogin:)];
 }
 
 - (void)didLogin:(NSDictionary *)data {
+    
+    NSLog(@"%@", data);
     
     // successful login
     
     if ([data objectForKey:@"error"] == nil) {
         
-        [self loginWithUsername:[data objectForKey:@"username"] apiKey:[data objectForKey:@"api_key"] userID:[data objectForKey:@"id"]];
+        [self loginWithUsername:[data objectForKey:@"username"] apiKey:[data objectForKey:@"api_key"] userID:[NSString stringWithFormat:@"%@", [data objectForKey:@"id"]]];
         
     }else {
         

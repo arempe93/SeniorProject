@@ -32,7 +32,7 @@
     self.userEmail.hidden = NO;
     
     self.userName.text = [data objectForKey:@"name"];
-    self.userEmail.text = [data objectForKey:@"email"];
+    self.userEmail.text = [[data objectForKey:@"email"] stringByReplacingOccurrencesOfString:@"connections." withString:@""];
     
     UIImage *avatar = [UIImage imageWithData:[NSData dataWithContentsOfURL:[NSURL URLWithString:[data objectForKey:@"image"]]]];
     self.userImage.image = avatar;

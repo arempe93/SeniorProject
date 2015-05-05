@@ -116,7 +116,11 @@
 
 - (NSString *)personalizePath:(NSString *)path {
     
-    return [path stringByReplacingOccurrencesOfString:@":user" withString:self.userID];
+    if ([path containsString:@":user"]) {
+        return [path stringByReplacingOccurrencesOfString:@":user" withString:self.userID];
+    }else {
+        return path;
+    }
 }
 
 #pragma mark - Connection delegate methods
