@@ -16,6 +16,7 @@
 		F54E6BBA1AD314A4002F3C86 /* BookTableViewCell.m in Sources */ = {isa = PBXBuildFile; fileRef = F54E6BB91AD314A4002F3C86 /* BookTableViewCell.m */; };
 		F568D5561AE6C9070038F967 /* TradeDetailViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = F568D5551AE6C9070038F967 /* TradeDetailViewController.m */; };
 		F5951F081AC1D85C00A7CF1C /* WishlistTableViewCell.m in Sources */ = {isa = PBXBuildFile; fileRef = F5951F071AC1D85C00A7CF1C /* WishlistTableViewCell.m */; };
+		F5A9FAB41AF9547B00A2829A /* MainTabsViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = F5A9FAB31AF9547B00A2829A /* MainTabsViewController.m */; };
 		F5B9A1C91AF40D6A0059AEC3 /* TradeSearchTableViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = F5B9A1C81AF40D6A0059AEC3 /* TradeSearchTableViewController.m */; };
 		F5B9A1CC1AF417990059AEC3 /* TradeSearchTableViewCell.m in Sources */ = {isa = PBXBuildFile; fileRef = F5B9A1CB1AF417990059AEC3 /* TradeSearchTableViewCell.m */; };
 		F5C9872F1ACDD3250055B9AF /* NSMutableArray+SWUtilityButtons.m in Sources */ = {isa = PBXBuildFile; fileRef = F5C987241ACDD3250055B9AF /* NSMutableArray+SWUtilityButtons.m */; };
@@ -65,6 +66,8 @@
 		F568D5551AE6C9070038F967 /* TradeDetailViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = TradeDetailViewController.m; sourceTree = "<group>"; };
 		F5951F061AC1D85C00A7CF1C /* WishlistTableViewCell.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = WishlistTableViewCell.h; sourceTree = "<group>"; };
 		F5951F071AC1D85C00A7CF1C /* WishlistTableViewCell.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = WishlistTableViewCell.m; sourceTree = "<group>"; };
+		F5A9FAB21AF9547B00A2829A /* MainTabsViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = MainTabsViewController.h; sourceTree = "<group>"; };
+		F5A9FAB31AF9547B00A2829A /* MainTabsViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = MainTabsViewController.m; sourceTree = "<group>"; };
 		F5B9A1C71AF40D6A0059AEC3 /* TradeSearchTableViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = TradeSearchTableViewController.h; sourceTree = "<group>"; };
 		F5B9A1C81AF40D6A0059AEC3 /* TradeSearchTableViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = TradeSearchTableViewController.m; sourceTree = "<group>"; };
 		F5B9A1CA1AF417990059AEC3 /* TradeSearchTableViewCell.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = TradeSearchTableViewCell.h; sourceTree = "<group>"; };
@@ -255,6 +258,8 @@
 				F5B9A1C81AF40D6A0059AEC3 /* TradeSearchTableViewController.m */,
 				F54451C31AF6B30800B1EE6C /* LoginViewController.h */,
 				F54451C41AF6B30800B1EE6C /* LoginViewController.m */,
+				F5A9FAB21AF9547B00A2829A /* MainTabsViewController.h */,
+				F5A9FAB31AF9547B00A2829A /* MainTabsViewController.m */,
 			);
 			name = controllers;
 			sourceTree = "<group>";
@@ -368,6 +373,7 @@
 				F526C4C11AAF6AC3004699EA /* ProfileViewController.m in Sources */,
 				F5E84AEF1AA62FA200DAE687 /* ViewController.m in Sources */,
 				F5C987341ACDD3250055B9AF /* SWUtilityButtonView.m in Sources */,
+				F5A9FAB41AF9547B00A2829A /* MainTabsViewController.m in Sources */,
 				F5E84AEC1AA62FA200DAE687 /* AppDelegate.m in Sources */,
 				F5C987331ACDD3250055B9AF /* SWUtilityButtonTapGestureRecognizer.m in Sources */,
 				F5B9A1CC1AF417990059AEC3 /* TradeSearchTableViewCell.m in Sources */,

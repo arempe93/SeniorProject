@@ -17,6 +17,8 @@
 @property (weak, nonatomic) IBOutlet UIImageView *yourBook;
 @property (weak, nonatomic) IBOutlet UILabel *userName;
 @property (weak, nonatomic) IBOutlet UIImageView *exchangeImage;
+@property (weak, nonatomic) IBOutlet UILabel *yourBookName;
+@property (weak, nonatomic) IBOutlet UILabel *theirBookName;
 
 - (void)loadInformation;
 

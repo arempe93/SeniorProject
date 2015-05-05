@@ -23,13 +23,16 @@
     
     // set view control values
     
-    UIImage *theirImage = [UIImage imageWithData:[NSData dataWithContentsOfURL:[NSURL URLWithString:@"http://ecx.images-amazon.com/images/I/31s1KcxycvL._SL194_.jpg"]]];
+    NSDictionary *theirBookInfo = [[self.suggestion objectForKey:@"their_books"] objectAtIndex:0];
+    NSDictionary *yourBookInfo = [[self.suggestion objectForKey:@"your_books"] objectAtIndex:0];
+    
+    UIImage *theirImage = [UIImage imageWithData:[NSData dataWithContentsOfURL:[NSURL URLWithString:[theirBookInfo valueForKeyPath:@"book.image"]]]];
     self.theirBook.image = theirImage;
+    self.theirBookName.text = [theirBookInfo valueForKeyPath:@"book.title"];
     
-    UIImage *yourImage = [UIImage imageWithData:[NSData dataWithContentsOfURL:[NSURL URLWithString:@"http://ecx.images-amazon.com/images/I/51yoKYI9r3L._SL194_.jpg"]]];
+    UIImage *yourImage = [UIImage imageWithData:[NSData dataWithContentsOfURL:[NSURL URLWithString:[yourBookInfo valueForKeyPath:@"book.image"]]]];
     self.yourBook.image = yourImage;
-    
-    self.exchangeImage.image = [UIImage imageNamed:@"check.png"];
+    self.yourBookName.text = [yourBookInfo valueForKeyPath:@"book.title"];
     
     self.userName.text = [self.suggestion valueForKeyPath:@"user.name"];
 }
