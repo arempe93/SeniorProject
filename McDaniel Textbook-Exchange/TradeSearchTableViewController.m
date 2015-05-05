@@ -12,7 +12,6 @@
 @interface TradeSearchTableViewController ()
 
 @property NSMutableArray *suggestionData;
-@property NSMutableArray *searchData;
 
 @end
 
@@ -39,7 +38,6 @@
     // initialize row data
     
     self.suggestionData = [[NSMutableArray alloc] init];
-    self.searchData = [[NSMutableArray alloc] init];
     
     [self refreshTrades];
 }
@@ -47,6 +45,20 @@
 - (void)didReceiveMemoryWarning {
     [super didReceiveMemoryWarning];
     // Dispose of any resources that can be recreated.
+}
+
+- (NSArray *)leftButtons {
+    
+    NSMutableArray *leftUtilityButtons = [NSMutableArray new];
+    
+    // delete button
+    
+    /* #007aff */
+    [leftUtilityButtons sw_addUtilityButtonWithColor:
+     [UIColor colorWithRed:0 green:0.478f blue:1 alpha:1.0]
+                                                icon:[UIImage imageNamed:@"send.png"]];
+    
+    return leftUtilityButtons;
 }
 
 # pragma mark - Searching
@@ -63,69 +75,55 @@
     
     self.suggestionData = [NSMutableArray arrayWithArray:data];
     
-    NSLog(@"%@", [self.suggestionData objectAtIndex:0]);
-    
     [self.tableView reloadData];
 }
 
-- (void)searchBarSearchButtonClicked:(UISearchBar *)searchBar {
+#pragma mark - SWTableViewCell delgate
+
+- (void)swipeableTableViewCell:(SWTableViewCell *)cell didTriggerLeftUtilityButtonWithIndex:(NSInteger)index {
+    NSIndexPath *indexPath = [self.tableView indexPathForCell:cell];
     
-    [self.refreshControl beginRefreshing];
+    switch (index) {
+        case 0:
+            // Remove the record on the server
+            
+            
+            // Remove the row from data array
+            [self.suggestionData removeObjectAtIndex:indexPath.row];
+            
+            // Delete the row from the table
+            [self.tableView deleteRowsAtIndexPaths:@[indexPath] withRowAnimation:UITableViewRowAnimationFade];
+            break;
+        default:
+            break;
+    }
 }
 
-- (void)searchBooks {
-    
-    
-}
-
-- (void)didFindBook:(NSDictionary *)data {
-    
-    
+- (void)swipeableTableViewCell:(SWTableViewCell *)cell didTriggerRightUtilityButtonWithIndex:(NSInteger)index {
 }
 
 #pragma mark - Table view data source
 
 - (NSInteger)numberOfSectionsInTableView:(UITableView *)tableView {
 
-    return 2;
+    return 1;
 }
 
 - (NSInteger)tableView:(UITableView *)tableView numberOfRowsInSection:(NSInteger)section {
 
-    if (section == 0) {
-        return [self.suggestionData count];
-    
-    }else {
-        
-        return [self.searchData count];
-    }
+    return [self.suggestionData count];
 }
-
-- (NSString *)tableView:(UITableView *)tableView titleForHeaderInSection:(NSInteger)section {
-    
-    if (section == 0) {
-        return @"Suggestions";
-    }else {
-        return @"Search Results";
-    }
-}
-
 
 - (UITableViewCell *)tableView:(UITableView *)tableView cellForRowAtIndexPath:(NSIndexPath *)indexPath {
+        
+    TradeSearchTableViewCell *cell = (TradeSearchTableViewCell *) [tableView dequeueReusableCellWithIdentifier:@"tradeSearchCell" forIndexPath:indexPath];
     
-    if (indexPath.section == 0) {
+    cell.leftUtilityButtons = [self leftButtons ];
         
-        TradeSearchTableViewCell *cell = (TradeSearchTableViewCell *) [tableView dequeueReusableCellWithIdentifier:@"tradeSearchCell" forIndexPath:indexPath];
+    cell.suggestion = [self.suggestionData objectAtIndex:indexPath.row];
+    [cell loadInformation];
         
-        cell.suggestion = [self.suggestionData objectAtIndex:indexPath.row];
-        [cell loadInformation];
-        
-        return cell;
-        
-    }else {
-     
-        return [tableView dequeueReusableCellWithIdentifier:@"tradeSearchCell" forIndexPath:indexPath];
-    }
+    return cell;
 }
 
 

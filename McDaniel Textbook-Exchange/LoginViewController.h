@@ -11,4 +11,5 @@
 @interface LoginViewController : UIViewController
 @property (weak, nonatomic) IBOutlet UITextField *loginField;
 
+- (void)didLogin:(NSDictionary *)data;
 @end

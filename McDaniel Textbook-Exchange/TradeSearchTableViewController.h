@@ -8,8 +8,9 @@
 
 #import <UIKit/UIKit.h>
 #import "APIConnectionManager.h"
+#import "SWTableViewCell.h"
 
-@interface TradeSearchTableViewController : UITableViewController <UISearchBarDelegate>
+@interface TradeSearchTableViewController : UITableViewController <SWTableViewCellDelegate>
 
 @property APIConnectionManager *api;
 
@@ -17,8 +18,5 @@
 
 - (void)refreshTrades;
 - (void)didFindTrades:(NSArray *)data;
-
-- (void)searchBooks;
-- (void)didFindBook:(NSDictionary *)data;
 
 @end

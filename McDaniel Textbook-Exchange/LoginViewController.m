@@ -68,8 +68,6 @@
 
 - (void)didLogin:(NSDictionary *)data {
     
-    NSLog(@"%@", data);
-    
     // successful login
     
     if ([data objectForKey:@"error"] == nil) {

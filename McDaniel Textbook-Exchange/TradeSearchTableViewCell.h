@@ -7,8 +7,9 @@
 //
 
 #import <UIKit/UIKit.h>
+#import "SWTableViewCell.h"
 
-@interface TradeSearchTableViewCell : UITableViewCell
+@interface TradeSearchTableViewCell : SWTableViewCell
 
 @property NSDictionary *suggestion;
 
