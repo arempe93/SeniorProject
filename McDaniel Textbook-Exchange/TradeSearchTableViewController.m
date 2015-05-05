@@ -23,9 +23,6 @@
     // initialize api
     self.api = [APIConnectionManager sharedConnection];
     
-    // initialize search bar
-    self.searchBar.delegate = self;
-    
     // initialize refresh control
     
     self.refreshControl = [[UIRefreshControl alloc] init];
@@ -78,6 +75,41 @@
     [self.tableView reloadData];
 }
 
+- (void)sendTradeRequest:(NSDictionary *)cell {
+    
+    NSNumber *receiver = [cell valueForKeyPath:@"user.id"];
+    
+    NSDictionary *theirBook = [[cell objectForKey:@"their_books"] objectAtIndex:0];
+    NSNumber *theirBookID = [theirBook valueForKeyPath:@"book.id"];
+    
+    NSDictionary *yourBook = [[cell objectForKey:@"your_books"] objectAtIndex:0];
+    NSNumber *yourBookID = [yourBook valueForKeyPath:@"book.id"];
+    
+    [self.api doPost:@"/users/:user/trades" caller:self callback:@selector(didSendTrade:) params:[NSString stringWithFormat:@"receiver=%@&your_book=%@&their_book=%@", receiver, yourBookID, theirBookID]];
+}
+
+- (void)didSendTrade:(NSDictionary *)data {
+    
+    if ([data objectForKey:@"error"] == nil) {
+        
+        UIAlertController *successAlert = [UIAlertController alertControllerWithTitle:@"Sent!" message:@"A trade request was sent to that user" preferredStyle:UIAlertControllerStyleAlert];
+        
+        UIAlertAction *okAction = [UIAlertAction actionWithTitle:@"Ok" style:UIAlertActionStyleDefault handler:^(UIAlertAction * action) { }];
+        
+        [successAlert addAction:okAction];
+        [self presentViewController:successAlert animated:YES completion:nil];
+        
+    }else {
+        
+        UIAlertController *errorAlert = [UIAlertController alertControllerWithTitle:@"Error!" message:[NSString stringWithFormat:@"Something went wrong...if you see someone that looks like they know what they're doing show them this:\n\n%@", [data valueForKeyPath:@"error.message"]] preferredStyle:UIAlertControllerStyleAlert];
+        
+        UIAlertAction *okAction = [UIAlertAction actionWithTitle:@"Ok" style:UIAlertActionStyleDefault handler:^(UIAlertAction * action) { }];
+        
+        [errorAlert addAction:okAction];
+        [self presentViewController:errorAlert animated:YES completion:nil];
+    }
+}
+
 #pragma mark - SWTableViewCell delgate
 
 - (void)swipeableTableViewCell:(SWTableViewCell *)cell didTriggerLeftUtilityButtonWithIndex:(NSInteger)index {
@@ -86,7 +118,7 @@
     switch (index) {
         case 0:
             // Remove the record on the server
-            
+            [self sendTradeRequest:[self.suggestionData objectAtIndex:indexPath.row]];
             
             // Remove the row from data array
             [self.suggestionData removeObjectAtIndex:indexPath.row];
@@ -118,7 +150,8 @@
         
     TradeSearchTableViewCell *cell = (TradeSearchTableViewCell *) [tableView dequeueReusableCellWithIdentifier:@"tradeSearchCell" forIndexPath:indexPath];
     
-    cell.leftUtilityButtons = [self leftButtons ];
+    cell.leftUtilityButtons = [self leftButtons];
+    cell.delegate = self;
         
     cell.suggestion = [self.suggestionData objectAtIndex:indexPath.row];
     [cell loadInformation];

@@ -14,8 +14,6 @@
 
 @property APIConnectionManager *api;
 
-@property (weak, nonatomic) IBOutlet UISearchBar *searchBar;
-
 - (void)refreshTrades;
 - (void)didFindTrades:(NSArray *)data;
 

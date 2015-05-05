@@ -24,6 +24,18 @@
         [self doComparison];
     }
     
+    // find out whether we are sender or receiver
+    if([[[NSUserDefaults standardUserDefaults] objectForKey:@"mcdanielUserID"] isEqualToString:[NSString stringWithFormat:@"%@", [self.tradeData valueForKeyPath:@"sender.id"]]]) {
+        
+        self.us = @"sender";
+        self.them = @"receiver";
+        
+    }else {
+        
+        self.us = @"receiver";
+        self.them = @"sender";
+    }
+    
     return self;
 }
 
@@ -105,14 +117,30 @@
     return self.comparison;
 }
 
-- (NSArray *)yourBooks {
+- (NSDictionary *)yourBook {
     
-    return [self.tradeData objectForKey:@"sender_books"];
+    return [[self.tradeData objectForKey:[NSString stringWithFormat:@"%@_books", self.us]] objectAtIndex:0];
 }
 
-- (NSArray *)theirBooks {
+- (NSDictionary *)theirBook {
     
-    return [self.tradeData objectForKey:@"receiver_books"];
+    return [[self.tradeData objectForKey:[NSString stringWithFormat:@"%@_books", self.them]] objectAtIndex:0];
 }
+
+- (NSString *)theirName {
+
+    return [self.tradeData valueForKeyPath:[NSString stringWithFormat:@"%@.name", self.them]];
+}
+
+- (NSString *)theirEmail {
+    
+    return [self.tradeData valueForKeyPath:[NSString stringWithFormat:@"%@.email", self.them]];
+}
+
+- (NSString *)theirImage {
+    
+    return [self.tradeData valueForKeyPath:[NSString stringWithFormat:@"%@.image", self.them]];
+}
+
 
 @end
