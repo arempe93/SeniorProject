@@ -48,7 +48,7 @@
     
     NSMutableArray *leftUtilityButtons = [NSMutableArray new];
     
-    // delete button
+    // send trade button
     
     /* #007aff */
     [leftUtilityButtons sw_addUtilityButtonWithColor:

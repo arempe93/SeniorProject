@@ -184,9 +184,9 @@
 
 - (void)tableView:(UITableView *)tableView didSelectRowAtIndexPath:(NSIndexPath *)indexPath {
     
-    Trade *trade = ((TradeTableViewCell *) [tableView cellForRowAtIndexPath:indexPath]).trade;
+    //Trade *trade = ((TradeTableViewCell *) [tableView cellForRowAtIndexPath:indexPath]).trade;
     
-    [self performSegueWithIdentifier:@"showTradeDetail" sender:trade];
+    //[self performSegueWithIdentifier:@"showTradeDetail" sender:trade];
 }
 
 /*

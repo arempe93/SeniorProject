@@ -13,10 +13,11 @@
 
 @interface TradeTableViewCell : SWTableViewCell
 
-@property (weak, nonatomic) IBOutlet UIImageView *userImage;
 @property (weak, nonatomic) IBOutlet UILabel *userName;
 @property (weak, nonatomic) IBOutlet UILabel *receivedItems;
 @property (weak, nonatomic) IBOutlet UILabel *sentItems;
+@property (weak, nonatomic) IBOutlet UIImageView *sentImage;
+@property (weak, nonatomic) IBOutlet UIImageView *receivedImage;
 
 @property Trade *trade;
 @property TradesTableViewController *controller;

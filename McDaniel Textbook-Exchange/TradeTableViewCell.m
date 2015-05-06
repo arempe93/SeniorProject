@@ -23,25 +23,25 @@
     
     self.receivedItems.lineBreakMode = NSLineBreakByWordWrapping;
     self.receivedItems.adjustsFontSizeToFitWidth = NO;
-    self.receivedItems.numberOfLines = 1;
     
     self.sentItems.lineBreakMode = NSLineBreakByWordWrapping;
     self.sentItems.adjustsFontSizeToFitWidth = NO;
-    self.sentItems.numberOfLines = 1;
     
     // set view control values
-    
-    UIImage *avatar = [UIImage imageWithData:[NSData dataWithContentsOfURL:[NSURL URLWithString:[self.trade theirImage]]]];
-    
-    self.userImage.image = avatar;
     
     self.userName.text = [self.trade theirName];
     
     self.receivedItems.text = [[self.trade theirBook] objectForKey:@"title"];
     [self.receivedItems sizeToFit];
     
+    UIImage *receivedBookImage = [UIImage imageWithData:[NSData dataWithContentsOfURL:[NSURL URLWithString:[[self.trade theirBook] objectForKey:@"image"]]]];
+    self.receivedImage.image = receivedBookImage;
+    
     self.sentItems.text = [[self.trade yourBook] objectForKey:@"title"];
     [self.sentItems sizeToFit];
+    
+    UIImage *sentBookImage = [UIImage imageWithData:[NSData dataWithContentsOfURL:[NSURL URLWithString:[[self.trade yourBook] objectForKey:@"image"]]]];
+    self.sentImage.image = sentBookImage;
 }
 
 - (void)setSelected:(BOOL)selected animated:(BOOL)animated {
