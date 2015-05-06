@@ -142,14 +142,24 @@
 
 - (void)tradeApproved:(NSDictionary *)data {
     
-    UIAlertView *approvalAlert = [[UIAlertView alloc] initWithTitle:@"Trade Approved!" message:@"An email has been sent to both of you to set up the exchange" delegate:nil cancelButtonTitle:@"Ok" otherButtonTitles:nil, nil];
+    UIAlertController *tradeAlert = [UIAlertController alertControllerWithTitle:@"Success!" message:@"An email was sent to both of you to set up the exchange" preferredStyle:UIAlertControllerStyleAlert];
     
-    [approvalAlert show];
+    UIAlertAction *okAction = [UIAlertAction actionWithTitle:@"Ok" style:UIAlertActionStyleDefault handler:^(UIAlertAction * action) { }];
+    
+    [tradeAlert addAction:okAction];
+    [self presentViewController:tradeAlert animated:YES completion:nil];
 }
 
 - (void)declineTrade:(id)tradeID {
     
     [self.api doDelete:[NSString stringWithFormat:@"/trades/%@", tradeID]];
+    
+    UIAlertController *tradeAlert = [UIAlertController alertControllerWithTitle:@"Declined!" message:@"Looked like a bad deal anyway" preferredStyle:UIAlertControllerStyleAlert];
+    
+    UIAlertAction *okAction = [UIAlertAction actionWithTitle:@"Ok" style:UIAlertActionStyleDefault handler:^(UIAlertAction * action) { }];
+    
+    [tradeAlert addAction:okAction];
+    [self presentViewController:tradeAlert animated:YES completion:nil];
 }
 
 #pragma mark - Table view data source
